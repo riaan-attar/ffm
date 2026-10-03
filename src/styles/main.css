@@ -79,11 +79,14 @@ html, body, #root {
   align-items: center;
   z-index: 100;
   margin: calc(8vh + 10px) auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .navbar-wrapper {
     margin-top: 12px;
+    padding: 0 14px;
   }
 }
 
@@ -332,24 +335,27 @@ html, body, #root {
   gap: 10px;
   height: 34px;
   text-decoration: none;
+  min-width: 0;
 }
 
 .brand-logo-icon {
-  height: 100%;
-  width: auto;
+  height: 34px;
+  width: 34px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .brand-logo-text {
   font-family: var(--font-sans);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   color: var(--color-cream, #F8F1DF);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .nav-center-menu {
@@ -583,33 +589,127 @@ html, body, #root {
   }
 
   .navbar-capsule {
-    height: 54px;
-    padding: 0 16px;
+    height: 52px;
+    padding: 0 12px 0 14px;
   }
 
   .brand-logo {
-    height: 28px;
+    height: 30px;
+    gap: 8px;
+  }
+
+  .brand-logo-icon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .brand-logo-text {
+    font-size: 15px;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-cta-container {
+    gap: 8px;
   }
 
   .nav-cta-btn {
     font-size: 11px;
-    padding: 6px 14px;
+    padding: 6px 12px;
+    gap: 6px;
   }
 }
 
-@media (max-width: 440px) {
-  .nav-cta-btn span {
-    font-size: 10.5px;
+@media (max-width: 480px) {
+  .navbar-wrapper {
+    padding: 0 10px;
+    margin-top: 10px;
   }
 
-  .nav-cta-btn {
-    padding: 6px 11px;
+  .navbar-capsule {
+    height: 48px;
+    padding: 0 8px 0 12px;
+    border-radius: 999px;
+  }
+
+  .brand-logo {
+    height: 28px;
+    gap: 7px;
+  }
+
+  .brand-logo-icon {
+    height: 28px;
+    width: 28px;
+  }
+
+  .brand-logo-text {
+    font-size: 13.5px;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-cta-container {
     gap: 6px;
   }
 
+  .nav-cta-btn {
+    padding: 5px 9px;
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .nav-cta-btn span {
+    font-size: 10px;
+  }
+
   .nav-cta-btn img {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .mobile-menu-toggle {
+    width: 34px;
+    height: 34px;
+    gap: 4px;
+  }
+
+  .hamburger-line {
+    width: 15px;
+    height: 1.8px;
+  }
+
+  .mobile-menu-toggle.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(5.8px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-5.8px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar-wrapper {
+    padding: 0 6px;
+  }
+
+  .navbar-capsule {
+    padding: 0 6px 0 10px;
+  }
+
+  .brand-logo-text {
+    font-size: 11.5px;
+    letter-spacing: 0;
+  }
+
+  .nav-cta-btn {
+    padding: 4px 7px;
+    font-size: 9.5px;
+  }
+
+  .nav-cta-btn span {
+    font-size: 9.5px;
+  }
+
+  .nav-cta-btn img {
+    display: none;
   }
 }
 
