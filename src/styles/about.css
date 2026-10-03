@@ -1,0 +1,688 @@
+/* ==================================================
+   FFM ABOUT PAGE
+   ================================================== */
+
+.about-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.about-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ==================================================
+   BESPOKE HERO (dark navy, split-text + cursor glow)
+   ================================================== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding-bottom: 96px;
+  overflow: hidden;
+}
+
+.about-hero .page-hero-nav-row {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 72px 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about-hero-title {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.6px;
+  color: #FFFFFF;
+  margin: 0;
+  max-width: 920px;
+}
+
+.about-hero-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.85;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* ==================================================
+   STORY / MISSION (cream)
+   ================================================== */
+.about-story-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-cream, #F8F1DF);
+  color: var(--color-dark-navy, #0B2338);
+  padding: 90px 0;
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(16, 45, 70, 0.06);
+}
+
+.about-story-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.about-story-left {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-story-headline {
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: var(--color-navy, #102D46);
+  margin: 0;
+}
+
+.about-story-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-story-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-story-right p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #3D5468;
+  margin: 0;
+  max-width: 62ch;
+}
+
+/* ==================================================
+   PULL-QUOTE (navy, asymmetric / off-grid)
+   ================================================== */
+.about-quote-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-navy, #102D46);
+  color: var(--color-cream, #F8F1DF);
+  padding: 120px 0 130px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.about-quote-mark {
+  position: absolute;
+  top: 18px;
+  left: 4%;
+  font-size: clamp(160px, 22vw, 320px);
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(242, 189, 88, 0.1);
+  font-family: Georgia, 'Times New Roman', serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.about-quote-container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-quote-text {
+  position: relative;
+  margin: 0 8% 0 14%;
+  max-width: 820px;
+  font-size: clamp(28px, 4.4vw, 52px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.8px;
+  color: #FFFFFF;
+  transform: rotate(-0.6deg);
+}
+
+.about-quote-attribution {
+  align-self: flex-end;
+  margin-right: 4%;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-quote-line {
+  width: 36px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+/* ==================================================
+   VALUES GRID (navy)
+   ================================================== */
+.about-values-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding: 90px 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.about-values-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-values-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 56px;
+  max-width: 620px;
+}
+
+.about-values-headline {
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.about-values-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.about-value-card {
+  position: relative;
+  background: linear-gradient(150deg, #14395A, #0B2338);
+  border: 1.5px solid rgba(242, 189, 88, 0.18);
+  border-radius: 20px;
+  padding: 32px 26px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.about-value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
+  border-color: rgba(242, 189, 88, 0.45);
+}
+
+/* Gradient wash that fades in behind the content on hover, instead of the
+   card simply lifting with a shadow. */
+.about-value-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(225deg, rgba(242, 189, 88, 0.22), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.about-value-card:hover::before {
+  opacity: 1;
+}
+
+.about-value-card-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Icon "coin flip": front face shows the line icon, back face (revealed on
+   hover via a 3D rotateY) shows the card's own ordinal number in solid gold,
+   instead of a plain rotate/scale on the same glyph. */
+.about-value-icon-flip {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  perspective: 600px;
+}
+
+.about-value-icon-rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.about-value-card:hover .about-value-icon-rotator {
+  transform: rotateY(180deg);
+}
+
+.about-value-icon-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+}
+
+.about-value-icon-front {
+  background: var(--color-dark-navy, #0B2338);
+  border: 1.5px solid var(--color-gold, #E5AE45);
+}
+
+.about-value-icon-back {
+  background: linear-gradient(135deg, var(--color-bright-gold, #F2BD58), var(--color-gold, #E5AE45));
+  border: 1.5px solid var(--color-bright-gold, #F2BD58);
+  transform: rotateY(180deg);
+}
+
+.about-value-icon-back span {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--color-dark-navy, #0B2338);
+}
+
+.about-value-icon-svg {
+  width: 22px;
+  height: 22px;
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-value-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.about-value-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ==================================================
+   PRINCIPLES / HOW WE THINK (navy)
+   ================================================== */
+.about-principles-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-navy, #102D46);
+  color: var(--color-cream, #F8F1DF);
+  padding: 90px 0;
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(242, 189, 88, 0.08);
+}
+
+.about-principles-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-principles-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 56px;
+  max-width: 640px;
+}
+
+.about-principles-headline {
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.about-principles-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-principles-copy {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.about-principles-rail {
+  padding-bottom: 8px;
+  /* DragScroll already supplies the flex/overflow/snap mechanics; this just
+     keeps the rail from stretching full-bleed inside its container. */
+  margin: 0 -4px;
+}
+
+.about-principle-card {
+  position: relative;
+  width: 420px;
+  padding: 32px 30px 30px;
+  border-top: 2px solid rgba(229, 174, 69, 0.35);
+  background: rgba(242, 189, 88, 0.04);
+  border-radius: 4px 18px 18px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.about-principle-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold, #E5AE45);
+  background: rgba(242, 189, 88, 0.08);
+}
+
+.about-principle-number {
+  position: relative;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--color-gold, #E5AE45);
+  opacity: 0.85;
+  line-height: 1;
+}
+
+.about-principle-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.about-principle-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ==================================================
+   CLOSING CTA (cream)
+   ================================================== */
+.about-cta-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-cream, #F8F1DF);
+  color: var(--color-dark-navy, #0B2338);
+  padding: 100px 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.about-cta-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-cta-card {
+  position: relative;
+  background: linear-gradient(150deg, #14395A, #0B2338);
+  border: 1.5px solid rgba(242, 189, 88, 0.22);
+  border-radius: 28px;
+  padding: 72px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  box-shadow: 0 30px 70px rgba(16, 45, 70, 0.25);
+}
+
+.about-cta-headline {
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  margin: 0;
+  max-width: 720px;
+}
+
+.about-cta-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.about-cta-copy {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.85;
+  margin: 0;
+  max-width: 480px;
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 16px 32px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-bright-gold, #F2BD58), var(--color-gold, #E5AE45));
+  color: var(--color-dark-navy, #0B2338);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(229, 174, 69, 0.3);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.about-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(229, 174, 69, 0.45);
+}
+
+.about-cta-arrow {
+  width: 14px;
+  height: 14px;
+  filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+  transition: transform 0.25s ease;
+}
+
+.about-cta-btn:hover .about-cta-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .about-hero-container,
+  .about-story-container,
+  .about-quote-container,
+  .about-values-container,
+  .about-principles-container,
+  .about-cta-container {
+    padding: 0 28px;
+  }
+
+  .about-story-container {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .about-story-left,
+  .about-story-right {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+
+  .about-quote-text {
+    margin: 0 4% 0 6%;
+  }
+
+  .about-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .about-principle-card {
+    width: 360px;
+  }
+
+  .about-cta-card {
+    padding: 56px 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding-bottom: 64px;
+  }
+
+  .about-hero-container {
+    padding: 48px 16px 0;
+  }
+
+  .about-story-section,
+  .about-values-section,
+  .about-principles-section {
+    padding: 56px 0;
+  }
+
+  .about-quote-section {
+    padding: 80px 0 90px;
+  }
+
+  .about-cta-section {
+    padding: 64px 0;
+  }
+
+  .about-story-container,
+  .about-quote-container,
+  .about-values-container,
+  .about-principles-container,
+  .about-cta-container {
+    padding: 0 16px;
+  }
+
+  .about-story-headline,
+  .about-values-headline,
+  .about-principles-headline {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .about-story-right p {
+    font-size: 14.5px;
+  }
+
+  .about-quote-mark {
+    top: 0;
+    left: 2%;
+  }
+
+  .about-quote-text {
+    margin: 0 2% 0 0;
+  }
+
+  .about-quote-attribution {
+    margin-right: 2%;
+  }
+
+  .about-values-header,
+  .about-principles-header {
+    margin-bottom: 32px;
+  }
+
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-value-card {
+    padding: 26px 22px;
+  }
+
+  .about-principle-card {
+    width: 82vw;
+    padding: 26px 22px 24px;
+  }
+
+  .about-cta-card {
+    padding: 44px 24px;
+    border-radius: 20px;
+  }
+
+  .about-cta-headline {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+
+  .about-cta-card .magnetic-wrap {
+    width: 100%;
+  }
+
+  .about-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

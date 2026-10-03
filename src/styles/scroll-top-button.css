@@ -1,0 +1,74 @@
+/* ==================================================
+   SCROLL TO TOP BUTTON
+   Adapts color to whatever section is currently behind it.
+   ================================================== */
+
+.scroll-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 200;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scroll-top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Sitting over a dark (navy) section: light capsule, dark icon */
+.scroll-top-btn.theme-on-dark {
+  background: rgba(248, 241, 223, 0.92);
+  border-color: rgba(229, 174, 69, 0.5);
+  color: var(--color-dark-navy, #0B2338);
+}
+
+.scroll-top-btn.theme-on-dark:hover {
+  background: var(--color-gold, #E5AE45);
+}
+
+/* Sitting over a light (cream) section: dark capsule, gold icon */
+.scroll-top-btn.theme-on-light {
+  background: rgba(11, 35, 56, 0.9);
+  border-color: rgba(229, 174, 69, 0.4);
+  color: var(--color-gold, #E5AE45);
+}
+
+.scroll-top-btn.theme-on-light:hover {
+  background: var(--color-dark-navy, #0B2338);
+  border-color: var(--color-gold, #E5AE45);
+}
+
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-top-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}

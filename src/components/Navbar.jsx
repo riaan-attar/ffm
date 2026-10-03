@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,26 +26,28 @@ export function Navbar() {
     <div className="navbar-wrapper">
       <header className="navbar-capsule">
         <div className="nav-brand-container">
-          <a href="#" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
-            <img src="/assets/brand/ffm-logo.svg" alt="FFM Logo" />
-          </a>
+          <Link to="/" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
+            <img src="/assets/brand/ffm-logo-icon.png" alt="FFM" className="brand-logo-icon" />
+            <span className="brand-logo-text">FFM</span>
+          </Link>
         </div>
 
         <nav className="nav-center-menu" aria-label="Main Navigation">
           <ul className="nav-links">
-            <li><a href="#hero-section" className="active">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><NavLink to="/" end>Home</NavLink></li>
+            <li><NavLink to="/services">Services</NavLink></li>
+            <li><NavLink to="/work">Work</NavLink></li>
+            <li><NavLink to="/testimonials">Testimonials</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </nav>
 
         <div className="nav-cta-container">
-          <a href="#contact" className="nav-cta-btn" onClick={closeMenu}>
+          <Link to="/contact" className="nav-cta-btn" onClick={closeMenu}>
             <span>START A PROJECT</span>
             <img src="/assets/ui/arrow-right.svg" alt="" width="14" height="14" aria-hidden="true" />
-          </a>
+          </Link>
 
           {/* Mobile Hamburger Button */}
           <button
@@ -65,9 +68,10 @@ export function Navbar() {
       <div className={`mobile-nav-overlay ${mobileMenuOpen ? 'is-active' : ''}`} onClick={closeMenu}>
         <div className="mobile-nav-panel" onClick={e => e.stopPropagation()}>
           <div className="mobile-nav-header">
-            <a href="#" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
-              <img src="/assets/brand/ffm-logo.svg" alt="FFM Logo" />
-            </a>
+            <Link to="/" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
+              <img src="/assets/brand/ffm-logo-icon.png" alt="FFM" className="brand-logo-icon" />
+              <span className="brand-logo-text">FFM</span>
+            </Link>
             <button
               type="button"
               className="mobile-nav-close"
@@ -79,18 +83,19 @@ export function Navbar() {
           </div>
 
           <ul className="mobile-nav-links">
-            <li><a href="#hero-section" onClick={closeMenu}>Home</a></li>
-            <li><a href="#services" onClick={closeMenu}>Services</a></li>
-            <li><a href="#work" onClick={closeMenu}>Work</a></li>
-            <li><a href="#process" onClick={closeMenu}>Our Process</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+            <li><NavLink to="/" end onClick={closeMenu}>Home</NavLink></li>
+            <li><NavLink to="/services" onClick={closeMenu}>Services</NavLink></li>
+            <li><NavLink to="/work" onClick={closeMenu}>Work</NavLink></li>
+            <li><NavLink to="/testimonials" onClick={closeMenu}>Testimonials</NavLink></li>
+            <li><NavLink to="/about" onClick={closeMenu}>About</NavLink></li>
+            <li><NavLink to="/contact" onClick={closeMenu}>Contact</NavLink></li>
           </ul>
 
           <div className="mobile-nav-cta">
-            <a href="#contact" className="mobile-cta-btn" onClick={closeMenu}>
+            <Link to="/contact" className="mobile-cta-btn" onClick={closeMenu}>
               <span>START A PROJECT</span>
               <img src="/assets/ui/arrow-right.svg" alt="" width="14" height="14" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

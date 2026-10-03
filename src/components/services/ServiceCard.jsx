@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function ServiceCard({ service, index }) {
   const isDark = service.theme === 'dark';
@@ -42,7 +43,7 @@ export function ServiceCard({ service, index }) {
           </ul>
         )}
 
-        <a href="#contact" className="service-card-btn">
+        <Link to={`/services/${service.id}`} className="service-card-btn">
           <span>LEARN MORE</span>
           <img
             src="/assets/services/service-arrow.svg"
@@ -50,7 +51,7 @@ export function ServiceCard({ service, index }) {
             className="service-btn-arrow"
             aria-hidden="true"
           />
-        </a>
+        </Link>
       </div>
     </article>
   );

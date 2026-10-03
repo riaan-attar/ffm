@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WORK_DATA } from '../../data/work';
@@ -6,7 +7,9 @@ import { WorkItem } from './WorkItem';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function WorkSection() {
+// Memoized: this section takes no props and must not re-render on every
+// 60x/sec hero game-loop update happening elsewhere on the Home page.
+export const WorkSection = React.memo(function WorkSection() {
   const sectionRef = useRef(null);
   const stackTrackRef = useRef(null);
   const cardsRef = useRef([]);
@@ -128,7 +131,7 @@ export function WorkSection() {
               From modern websites to complex web applications, we build solutions that deliver real results.
             </p>
 
-            <a href="#contact" className="work-view-all-btn">
+            <Link to="/work" className="work-view-all-btn">
               <span>View All Work</span>
               <img
                 src="/assets/services/service-arrow.svg"
@@ -136,7 +139,7 @@ export function WorkSection() {
                 className="work-view-all-arrow"
                 aria-hidden="true"
               />
-            </a>
+            </Link>
           </div>
         </header>
 
@@ -173,4 +176,4 @@ export function WorkSection() {
       </div>
     </section>
   );
-}
+});

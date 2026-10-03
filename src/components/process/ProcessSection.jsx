@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PROCESS_DATA } from '../../data/process';
@@ -6,7 +7,9 @@ import { PROCESS_ICONS } from './ProcessIcons';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ProcessSection() {
+// Memoized: this section takes no props and must not re-render on every
+// 60x/sec hero game-loop update happening elsewhere on the Home page.
+export const ProcessSection = React.memo(function ProcessSection() {
   const sectionRef = useRef(null);
   const lineRef = useRef(null);
   const stepsRef = useRef([]);
@@ -75,7 +78,7 @@ export function ProcessSection() {
               A simple, transparent process to turn your vision into a high-performing digital product.
             </p>
 
-            <a href="#contact" className="process-cta-btn">
+            <Link to="/contact" className="process-cta-btn">
               <span>Start Your Project</span>
               <img
                 src="/assets/services/service-arrow.svg"
@@ -83,7 +86,7 @@ export function ProcessSection() {
                 className="process-cta-arrow"
                 aria-hidden="true"
               />
-            </a>
+            </Link>
           </div>
         </header>
 
@@ -111,4 +114,4 @@ export function ProcessSection() {
       </div>
     </section>
   );
-}
+});

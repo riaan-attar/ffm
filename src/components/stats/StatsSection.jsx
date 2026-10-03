@@ -16,7 +16,9 @@ function StatItem({ stat, valueRef }) {
   );
 }
 
-export function StatsSection() {
+// Memoized: this section takes no props and must not re-render on every
+// 60x/sec hero game-loop update happening elsewhere on the Home page.
+export const StatsSection = React.memo(function StatsSection() {
   const sectionRef = useRef(null);
   const valueRefs = useRef([]);
 
@@ -64,4 +66,4 @@ export function StatsSection() {
       </div>
     </section>
   );
-}
+});

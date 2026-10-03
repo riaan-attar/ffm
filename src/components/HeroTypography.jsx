@@ -1,6 +1,9 @@
 import React from 'react';
 
-export function HeroTypography() {
+// Memoized because the hero's game loop updates bucket/egg position state
+// 60x/sec in the parent (Home); without this, every frame would re-render
+// this static, prop-less component too, causing visible jank/jitter.
+export const HeroTypography = React.memo(function HeroTypography() {
   return (
     <main className="hero-content">
       <div className="hero-eyebrow">
@@ -18,4 +21,4 @@ export function HeroTypography() {
       </p>
     </main>
   );
-}
+});

@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -38,14 +39,16 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-container">
         <nav className="footer-nav-primary" aria-label="Footer">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a href="#contact">Contact</a>
+          <Link to="/services">Services</Link>
+          <Link to="/work">Work</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
 
         <div className="footer-nav-secondary">
-          <a href="#process">Our Process</a>
-          <a href="#contact">Start a Project</a>
+          <Link to="/about">About</Link>
+          <Link to="/#process">Our Process</Link>
+          <Link to="/testimonials">Testimonials</Link>
+          <Link to="/contact">Start a Project</Link>
         </div>
 
         <div className="footer-mid-row">

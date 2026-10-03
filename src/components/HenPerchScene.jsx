@@ -51,7 +51,9 @@ const HENS_CONFIG = [
   }
 ];
 
-export function HenPerchScene({ activeHenIndex, onHenClick }) {
+// Memoized: only activeHenIndex/onHenClick should trigger a re-render, not
+// the hero's 60x/sec bucket-position state updates happening in the parent.
+export const HenPerchScene = React.memo(function HenPerchScene({ activeHenIndex, onHenClick }) {
   return (
     <div className="hen-scene-container" aria-label="Interactive Hen Sanctuary">
       {HENS_CONFIG.map((hen, index) => {
@@ -85,4 +87,4 @@ export function HenPerchScene({ activeHenIndex, onHenClick }) {
       })}
     </div>
   );
-}
+});

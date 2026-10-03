@@ -1,0 +1,553 @@
+/* ==================================================
+   FFM CONTACT PAGE — HERO + FAQ
+   (Supplements contact.css; scoped to the standalone
+   Contact page only, around the shared ContactSection.)
+   ================================================== */
+
+/* ==================================================
+   BESPOKE HERO (dark navy, pointer-tilt status card)
+   ================================================== */
+.contact-hero {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.contact-hero-container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 40px 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.contact-hero-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+.contact-hero-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  color: #FFFFFF;
+  margin: 0;
+  max-width: 560px;
+}
+
+.contact-hero-title .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.contact-hero-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.85;
+  margin: 0;
+  max-width: 480px;
+}
+
+.contact-hero-email-wrap {
+  margin-top: 6px;
+  width: fit-content;
+}
+
+.contact-hero-email {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(242, 189, 88, 0.08);
+  border: 1.5px solid rgba(242, 189, 88, 0.3);
+  text-decoration: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-hero-email:hover {
+  background: rgba(242, 189, 88, 0.14);
+  border-color: rgba(242, 189, 88, 0.5);
+}
+
+.contact-hero-email span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-muted-blue, #9EAFBD);
+}
+
+.contact-hero-email strong {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-bright-gold, #F2BD58);
+}
+
+/* The status card sits in its own perspective box so the tilt (driven from
+   Contact.jsx via pointer position) reads as a physical object rather than
+   a flat scroll/fade reveal. */
+.contact-hero-card-wrap {
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.contact-hero-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  padding: 30px 28px;
+  border-radius: 22px;
+  background: linear-gradient(150deg, #14395A, #0B2338);
+  border: 1.5px solid rgba(242, 189, 88, 0.22);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.contact-hero-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5FD38A;
+  box-shadow: 0 0 0 0 rgba(95, 211, 138, 0.6);
+  animation: contact-pulse 2.2s ease-out infinite;
+}
+
+@keyframes contact-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(95, 211, 138, 0.55); }
+  70% { box-shadow: 0 0 0 10px rgba(95, 211, 138, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(95, 211, 138, 0); }
+}
+
+.contact-hero-card-status {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.2px;
+}
+
+.contact-hero-card-divider {
+  height: 1px;
+  background: rgba(242, 189, 88, 0.2);
+}
+
+.contact-hero-card-response {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.75;
+}
+
+.contact-hero-card-response strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-gold, #E5AE45);
+  opacity: 1;
+}
+
+/* ==================================================
+   FAQ SECTION (cream, sticky index rail + accordion)
+   ================================================== */
+.contact-faq-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-cream, #F8F1DF);
+  color: var(--color-dark-navy, #0B2338);
+  padding: 96px 0 110px;
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(16, 45, 70, 0.08);
+}
+
+.contact-faq-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ==================================================
+   LEFT RAIL (sticky header + jump nav)
+   ================================================== */
+.contact-faq-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 110px;
+  will-change: transform, opacity;
+}
+
+.contact-faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.contact-faq-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+.contact-faq-headline {
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: var(--color-navy, #102D46);
+  margin: 0;
+}
+
+.contact-faq-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.contact-faq-copy {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-navy, #102D46);
+  opacity: 0.7;
+  margin: 0;
+  max-width: 320px;
+}
+
+.contact-faq-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.contact-faq-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid rgba(16, 45, 70, 0.1);
+  padding: 10px 0 10px 16px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-faq-nav-index {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-muted-blue, #9EAFBD);
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.contact-faq-nav-label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-navy, #102D46);
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+.contact-faq-nav-item:hover {
+  border-left-color: rgba(229, 174, 69, 0.5);
+}
+
+.contact-faq-nav-item.is-active {
+  border-left-color: var(--color-gold, #E5AE45);
+}
+
+.contact-faq-nav-item.is-active .contact-faq-nav-index {
+  color: var(--color-gold, #E5AE45);
+}
+
+.contact-faq-nav-item.is-active .contact-faq-nav-label {
+  opacity: 1;
+}
+
+/* ==================================================
+   ACCORDION LIST
+   ================================================== */
+.contact-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  will-change: transform, opacity;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(16, 45, 70, 0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item.is-open {
+  border-color: rgba(229, 174, 69, 0.45);
+  box-shadow: 0 16px 36px rgba(16, 45, 70, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy, #102D46);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-question-index {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-gold, #E5AE45);
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+
+.faq-item.is-open .faq-question-index {
+  opacity: 1;
+}
+
+.faq-question-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.faq-item.is-open .faq-question {
+  color: var(--color-dark-navy, #0B2338);
+}
+
+.faq-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(229, 174, 69, 0.14);
+  transition: background 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.faq-item.is-open .faq-icon {
+  background: var(--color-gold, #E5AE45);
+  transform: rotate(135deg);
+}
+
+.faq-icon-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s ease;
+}
+
+.faq-icon-line-h {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-icon-line-v {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item.is-open .faq-icon-line {
+  background: var(--color-dark-navy, #0B2338);
+}
+
+/* Height/opacity reveal: grid-template-rows animates from 0fr to 1fr while
+   the inner content cross-fades in, giving a smooth expand/collapse without
+   needing JS to measure scrollHeight. */
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.is-open .faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+}
+
+.faq-item.is-open .faq-answer-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-answer-inner p {
+  margin: 0;
+  padding: 0 26px 22px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-navy, #102D46);
+  opacity: 0.75;
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .contact-hero-container {
+    padding: 0 28px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .contact-hero-card-wrap {
+    justify-content: flex-start;
+  }
+
+  .contact-hero-card {
+    max-width: 360px;
+  }
+
+  .contact-faq-container {
+    padding: 0 28px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .contact-faq-rail {
+    position: static;
+    max-width: 640px;
+  }
+
+  .contact-faq-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-faq-nav-item {
+    border-left: none;
+    border-bottom: 2px solid rgba(16, 45, 70, 0.1);
+    padding: 6px 2px 8px;
+  }
+
+  .contact-faq-nav-item.is-active {
+    border-left: none;
+    border-bottom-color: var(--color-gold, #E5AE45);
+  }
+
+  .contact-faq-nav-label {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    padding-bottom: 56px;
+  }
+
+  .contact-hero-container {
+    padding: 48px 16px 0;
+  }
+
+  .contact-hero-title {
+    font-size: clamp(28px, 7vw, 38px);
+  }
+
+  .contact-hero-card-wrap {
+    perspective: none;
+  }
+
+  .contact-faq-section {
+    padding: 72px 0 88px;
+  }
+
+  .contact-faq-container {
+    padding: 0 16px;
+    gap: 28px;
+  }
+
+  .contact-faq-headline {
+    font-size: clamp(28px, 6vw, 36px);
+  }
+
+  .faq-question {
+    padding: 18px 20px;
+    font-size: 15px;
+  }
+
+  .faq-answer-inner p {
+    padding: 0 20px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-faq-rail {
+    gap: 12px;
+  }
+
+  .faq-question-text {
+    font-size: 14.5px;
+  }
+}

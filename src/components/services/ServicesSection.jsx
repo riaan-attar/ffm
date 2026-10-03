@@ -7,7 +7,9 @@ import { ServiceCard } from './ServiceCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function ServicesSection() {
+// Memoized: this section takes no props and must not re-render on every
+// 60x/sec hero game-loop update happening elsewhere on the Home page.
+export const ServicesSection = React.memo(function ServicesSection() {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
   const cardsTrackRef = useRef(null);
@@ -180,4 +182,4 @@ export function ServicesSection() {
       </div>
     </section>
   );
-}
+});

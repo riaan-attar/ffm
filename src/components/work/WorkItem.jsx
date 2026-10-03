@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function WorkItem({ project, reverse }) {
   return (
@@ -28,7 +29,7 @@ export function WorkItem({ project, reverse }) {
 
         <p className="work-card-description">{project.description}</p>
 
-        <a href={project.link} className="work-card-link">
+        <Link to={`/work/${project.id}`} className="work-card-link">
           <span>VIEW CASE STUDY</span>
           <img
             src="/assets/services/service-arrow.svg"
@@ -36,7 +37,7 @@ export function WorkItem({ project, reverse }) {
             className="work-card-link-arrow"
             aria-hidden="true"
           />
-        </a>
+        </Link>
       </div>
     </article>
   );

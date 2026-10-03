@@ -1,0 +1,83 @@
+/* ==================================================
+   SHARED MOTION PRIMITIVES
+   Used across the site's inner pages for distinct, purposeful interaction
+   instead of repeating one fade-up pattern everywhere.
+   ================================================== */
+
+/* --- Magnetic buttons --- */
+.magnetic-wrap {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* --- Split-text headline reveal --- */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.split-word-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* --- Cursor spotlight --- */
+.cursor-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 174, 69, 0.16) 0%, rgba(229, 174, 69, 0) 70%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* --- Drag-scroll gallery --- */
+.drag-scroll {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.drag-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.drag-scroll.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.drag-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* --- Mask/wipe image reveal --- */
+.reveal-image-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-image-clip {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal-image-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

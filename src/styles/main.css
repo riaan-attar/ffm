@@ -78,7 +78,7 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   z-index: 100;
-  margin-top: calc(8vh + 10px);
+  margin: calc(8vh + 10px) auto 0;
 }
 
 @media (max-width: 768px) {
@@ -329,13 +329,27 @@ html, body, #root {
 .brand-logo {
   display: flex;
   align-items: center;
+  gap: 10px;
   height: 34px;
   text-decoration: none;
 }
 
-.brand-logo img {
+.brand-logo-icon {
   height: 100%;
   width: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.brand-logo-text {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--color-cream, #F8F1DF);
+  line-height: 1;
 }
 
 .nav-center-menu {
@@ -750,6 +764,32 @@ html, body, #root {
 @keyframes scoreFloat {
   0% { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
   100% { opacity: 0; transform: translate(-50%, -100px) scale(1.3); }
+}
+
+/* Without `position: absolute` here, this div (and each stardust particle
+   inside it) sits in normal document flow as a flex item of .hero-container.
+   Since particles are added/removed every time the bucket moves, that flow
+   item's height kept changing, and because .hero-content uses `margin: auto`
+   to center itself in that same flex column, the headline visibly shifted
+   up and down in sync with bucket movement. */
+.stardust-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 49;
+  overflow: visible;
+}
+
+.stardust-sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 229, 153, 0.95) 0%, rgba(242, 189, 88, 0.6) 55%, rgba(242, 189, 88, 0) 100%);
+  box-shadow: 0 0 8px rgba(242, 189, 88, 0.7);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease-out;
 }
 
 .bucket-cursor-wrapper {

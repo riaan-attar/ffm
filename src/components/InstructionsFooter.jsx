@@ -1,6 +1,8 @@
 import React from 'react';
 
-export function InstructionsFooter({ score = 0, lives = 3 }) {
+// Memoized: score/lives change only on catch/miss events, not on every
+// 60x/sec bucket-position frame update happening in the parent.
+export const InstructionsFooter = React.memo(function InstructionsFooter({ score = 0, lives = 3 }) {
   const formattedScore = String(score).padStart(3, '0');
 
   return (
@@ -41,4 +43,4 @@ export function InstructionsFooter({ score = 0, lives = 3 }) {
       </div>
     </footer>
   );
-}
+});

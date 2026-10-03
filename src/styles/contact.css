@@ -1,0 +1,296 @@
+/* ==================================================
+   FFM CONTACT SECTION
+   ================================================== */
+
+.contact-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding: 100px 0;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.contact-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 80px;
+}
+
+/* Used when the page around this section already has its own hero/intro
+   (e.g. the dedicated /contact page), so the form card is centered on its
+   own instead of duplicating the eyebrow/headline/contact-details column. */
+.contact-container-compact {
+  justify-content: center;
+}
+
+.contact-container-compact .contact-form-card {
+  flex: 0 1 640px;
+}
+
+/* ==================================================
+   LEFT: INFO COLUMN
+   ================================================== */
+.contact-info {
+  flex: 0 0 42%;
+  max-width: 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  will-change: transform, opacity;
+}
+
+.contact-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.contact-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+.contact-headline {
+  font-size: clamp(34px, 3.6vw, 48px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.contact-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.contact-copy {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+  max-width: 420px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.contact-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.contact-detail-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-gold, #E5AE45);
+}
+
+.contact-detail-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-cream, #F8F1DF);
+  transition: color 0.25s ease;
+}
+
+.contact-detail-item:hover .contact-detail-value {
+  color: var(--color-gold, #E5AE45);
+}
+
+/* ==================================================
+   RIGHT: FORM CARD
+   ================================================== */
+.contact-form-card {
+  flex: 1;
+  min-width: 0;
+  background: linear-gradient(150deg, #14395A, #0B2338);
+  border: 1.5px solid rgba(242, 189, 88, 0.18);
+  border-radius: 24px;
+  padding: 44px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  will-change: transform, opacity;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--color-muted-blue, #9EAFBD);
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-cream, #F8F1DF);
+  background: rgba(11, 35, 56, 0.6);
+  border: 1.5px solid rgba(158, 175, 189, 0.25);
+  border-radius: 12px;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  resize: vertical;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--color-muted-blue, #9EAFBD);
+  opacity: 0.6;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  border-color: var(--color-gold, #E5AE45);
+  background: rgba(11, 35, 56, 0.9);
+}
+
+.contact-field select {
+  cursor: pointer;
+}
+
+.contact-field select option {
+  background: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+}
+
+.contact-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 15px 32px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-bright-gold, #F2BD58), var(--color-gold, #E5AE45));
+  color: var(--color-dark-navy, #0B2338);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(229, 174, 69, 0.28);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  margin-top: 4px;
+}
+
+.contact-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(229, 174, 69, 0.4);
+}
+
+.contact-submit-arrow {
+  width: 14px;
+  height: 14px;
+  filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+  transition: transform 0.25s ease;
+}
+
+.contact-submit-btn:hover .contact-submit-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ==================================================
+   SUCCESS STATE
+   ================================================== */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  min-height: 280px;
+}
+
+.contact-success h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-gold, #E5AE45);
+  margin: 0;
+}
+
+.contact-success p {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .contact-info {
+    flex: 1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 72px 0;
+  }
+
+  .contact-container {
+    padding: 0 16px;
+    gap: 36px;
+  }
+
+  .contact-form-card {
+    padding: 28px;
+  }
+
+  .contact-form-row {
+    flex-direction: column;
+    gap: 22px;
+  }
+}
