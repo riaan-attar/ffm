@@ -1,0 +1,393 @@
+/* ==================================================
+   FFM WORK / CASE STUDIES SECTION
+   Pinned bottom-up stacking, one huge card at a time.
+   ================================================== */
+
+.work-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding: 100px 0 80px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.work-container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==================================================
+   HEADER
+   ================================================== */
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.work-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.work-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+.work-headline {
+  font-size: clamp(34px, 3.6vw, 48px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.work-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.work-header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 480px;
+}
+
+.work-header-copy {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+  max-width: 300px;
+}
+
+.work-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-bright-gold, #F2BD58), var(--color-gold, #E5AE45));
+  color: var(--color-dark-navy, #0B2338);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(229, 174, 69, 0.28);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.work-view-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(229, 174, 69, 0.4);
+}
+
+.work-view-all-arrow {
+  width: 14px;
+  height: 14px;
+  filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+  transition: transform 0.25s ease;
+}
+
+.work-view-all-btn:hover .work-view-all-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ==================================================
+   STACK STAGE
+   ================================================== */
+.work-stage {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.work-stack-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.work-stack-card-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+/* ==================================================
+   HUGE CASE STUDY CARD
+   ================================================== */
+.work-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #14395A, #0B2338);
+  border: 1.5px solid rgba(242, 189, 88, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.work-card-reverse {
+  flex-direction: row-reverse;
+}
+
+/* --- Visual / Live Preview Column --- */
+.work-card-visual-col {
+  flex: 0 0 62%;
+  max-width: 62%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 35, 56, 0.5);
+  padding: 48px;
+  box-sizing: border-box;
+}
+
+.work-card-preview-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.4));
+}
+
+/* --- Content Column --- */
+.work-card-content-col {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 56px 64px;
+  box-sizing: border-box;
+}
+
+.work-card-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: var(--color-gold, #E5AE45);
+}
+
+.work-card-title {
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.work-card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--color-muted-blue, #9EAFBD);
+}
+
+.work-card-tag-dot {
+  color: var(--color-gold, #E5AE45);
+  opacity: 0.7;
+  font-size: 8px;
+}
+
+.work-card-description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.85;
+  margin: 4px 0 8px;
+  max-width: 46ch;
+}
+
+.work-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-gold, #E5AE45);
+  color: var(--color-cream, #F8F1DF);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.work-card-link:hover {
+  background: var(--color-gold, #E5AE45);
+  color: var(--color-dark-navy, #0B2338);
+}
+
+.work-card-link-arrow {
+  width: 14px;
+  height: 14px;
+  filter: invert(82%) sepia(54%) saturate(620%) hue-rotate(345deg) brightness(98%) contrast(92%);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.work-card-link:hover .work-card-link-arrow {
+  transform: translate(2px, -2px);
+  filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+}
+
+/* ==================================================
+   PROGRESS DOTS
+   ================================================== */
+.work-progress-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding-top: 32px;
+}
+
+.work-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(158, 175, 189, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.work-progress-dot.is-active {
+  width: 28px;
+  border-radius: 999px;
+  background: var(--color-gold, #E5AE45);
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .work-container {
+    padding: 0 24px;
+  }
+
+  .work-stage {
+    height: 720px;
+  }
+
+  .work-card,
+  .work-card-reverse {
+    flex-direction: column;
+  }
+
+  .work-card-visual-col {
+    flex: 0 0 42%;
+    max-width: 100%;
+    padding: 32px 32px 0;
+  }
+
+  .work-card-content-col {
+    padding: 28px 32px 32px;
+    gap: 14px;
+    justify-content: flex-start;
+  }
+
+  .work-card-description {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-section {
+    padding: 72px 0 60px;
+  }
+
+  .work-container {
+    padding: 0 16px;
+  }
+
+  .work-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+
+  .work-header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: none;
+    gap: 20px;
+  }
+
+  .work-header-copy {
+    max-width: none;
+  }
+
+  .work-stage {
+    height: 760px;
+    border-radius: 22px;
+  }
+
+  .work-card {
+    border-radius: 22px;
+  }
+
+  .work-card-visual-col {
+    flex: 0 0 38%;
+    padding: 24px 24px 0;
+  }
+
+  .work-card-content-col {
+    padding: 20px 24px 24px;
+    gap: 12px;
+  }
+
+  .work-card-title {
+    font-size: 24px;
+  }
+
+  .work-card-description {
+    font-size: 14px;
+  }
+}

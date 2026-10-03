@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <defs>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5A2B"/>
+      <stop offset="50%" stop-color="#5C3A21"/>
+      <stop offset="100%" stop-color="#3D2314"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#16A34A"/>
+    </linearGradient>
+  </defs>
+  <!-- Main branch extending from left -->
+  <path d="M 0 18 Q 40 22, 90 24 Q 130 25, 155 30 Q 140 38, 90 34 Q 40 32, 0 35 Z" fill="url(#woodGrad)" stroke="#3D2314" stroke-width="1.5"/>
+  <!-- Branch knots & grain -->
+  <path d="M 30 24 Q 60 27, 85 28" stroke="#A07248" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M 95 29 Q 120 30, 135 32" stroke="#A07248" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <!-- Leaves -->
+  <path d="M 65 30 Q 75 42, 85 36 Q 78 30, 65 30 Z" fill="url(#leafGrad)" stroke="#15803D" stroke-width="1"/>
+  <path d="M 125 31 Q 138 40, 142 33 Q 134 28, 125 31 Z" fill="url(#leafGrad)" stroke="#15803D" stroke-width="1"/>
+  <path d="M 35 22 Q 42 10, 52 14 Q 46 22, 35 22 Z" fill="url(#leafGrad)" stroke="#15803D" stroke-width="1"/>
+</svg>

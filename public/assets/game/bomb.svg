@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 48" width="36" height="48">
+  <defs>
+    <radialGradient id="bombShine" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0B1320"/>
+    </radialGradient>
+    <radialGradient id="sparkGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="30%" stop-color="#FF4D4D"/>
+      <stop offset="70%" stop-color="#FF9900"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="fuseFire" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFF80"/>
+      <stop offset="60%" stop-color="#FF4500"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fuse spark / flame -->
+  <circle cx="27" cy="5" r="4" fill="url(#sparkGlow)"/>
+  <circle cx="27" cy="5" r="2" fill="url(#fuseFire)"/>
+  <path d="M 27 5 L 29 3 M 27 5 L 30 6 M 27 5 L 26 2 M 27 5 L 28 8" stroke="#FFA500" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Fuse line -->
+  <path d="M 20 16 Q 26 12 26 6" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Bomb Cap -->
+  <rect x="15" y="14" width="8" height="4" rx="1.5" fill="#334155" stroke="#475569" stroke-width="0.8"/>
+
+  <!-- Bomb Body -->
+  <circle cx="19" cy="31" r="15" fill="url(#bombShine)" stroke="#EF4444" stroke-width="1.2"/>
+
+  <!-- Specular Reflection -->
+  <ellipse cx="14" cy="24" rx="4" ry="2.5" transform="rotate(-30 14 24)" fill="#94A3B8" opacity="0.6"/>
+
+  <!-- Warning Symbol / Icon -->
+  <path d="M 19 25 L 19 33 M 19 36 L 19 37" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,584 @@
+/* FFM Agency Landing Page - Hero Section Styles */
+:root {
+  --color-navy: #102D46;
+  --color-dark-navy: #0B2338;
+  --color-gold: #E5AE45;
+  --color-bright-gold: #F2BD58;
+  --color-cream: #F8F1DF;
+  --color-muted-cream: #E7DCC5;
+  --color-muted-blue: #9EAFBD;
+  --color-warm-orange: #D97745;
+  --color-red: #EB5757;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-dark-navy);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================================================
+   HERO SECTION CONTAINER
+   ================================================== */
+.hero-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 30%, #163a59 0%, var(--color-navy) 60%, var(--color-dark-navy) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 20px 40px;
+  overflow: hidden;
+  cursor: none; /* Hide default cursor inside hero for custom bucket */
+}
+
+/* Decorative Background Elements */
+.bg-decorative {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bg-orb-gold {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 700px;
+  height: 700px;
+  opacity: 0.45;
+}
+
+.bg-orb-navy {
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  opacity: 0.6;
+}
+
+.bg-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/assets/decorative/subtle-grid.svg');
+  background-size: 100px 100px;
+  opacity: 0.4;
+}
+
+.bg-glow-ring {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  opacity: 0.35;
+}
+
+/* ==================================================
+   1. NAVIGATION / GAME HUD CAPSULE
+   ================================================== */
+.navbar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+  margin-top: 10px;
+}
+
+/* Hens perched on navbar top */
+.hen-perch-container {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  max-width: 650px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 25;
+}
+
+.hen-item {
+  width: 48px;
+  height: 40px;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.hen-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.hen-item.laying {
+  animation: henBounce 0.3s ease;
+}
+
+@keyframes henBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px) scale(1.05); }
+  100% { transform: translateY(0); }
+}
+
+/* Main Capsule Navbar */
+.navbar-capsule {
+  width: 100%;
+  height: 68px;
+  background: rgba(16, 45, 70, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(229, 174, 69, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: relative;
+}
+
+/* Left Brand & Nav Links */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 100%;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--color-cream);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  opacity: 1;
+  color: var(--color-bright-gold);
+}
+
+.nav-links a.active {
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* Center CTA Button inside Navbar */
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-bright-gold));
+  color: var(--color-dark-navy);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(229, 174, 69, 0.25);
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(229, 174, 69, 0.4);
+}
+
+/* Right Game HUD */
+.nav-hud {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-left: 1px solid rgba(158, 175, 189, 0.25);
+  padding-left: 24px;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--color-muted-blue);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.score-value {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--color-bright-gold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+
+.lives-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.heart-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heart-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.heart-icon.lost {
+  animation: heartShake 0.4s ease;
+}
+
+@keyframes heartShake {
+  0%, 100% { transform: scale(1); }
+  20%, 60% { transform: scale(1.3) rotate(-10deg); }
+  40%, 80% { transform: scale(1.3) rotate(10deg); }
+}
+
+/* ==================================================
+   2. CENTRAL HERO TYPOGRAPHY
+   ================================================== */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 840px;
+  margin: auto 0;
+  padding: 40px 20px;
+  pointer-events: none; /* Let clicks pass to game layer */
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-headline {
+  font-size: clamp(40px, 6vw, 68px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  color: var(--color-cream);
+  margin-bottom: 24px;
+}
+
+.hero-headline .highlight {
+  color: var(--color-bright-gold);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-cream);
+  opacity: 0.85;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   3. GAME PLAY AREA & DYNAMIC ELEMENTS
+   ================================================== */
+.game-play-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Dynamic Falling Egg Element */
+.falling-egg {
+  position: absolute;
+  width: 32px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.falling-egg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.egg-trail-line {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 80px;
+  background: repeating-linear-gradient(to bottom, var(--color-gold) 0, var(--color-gold) 4px, transparent 4px, transparent 10px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Catch Burst & Particle Effects */
+.catch-burst-effect {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: burstFade 0.4s ease-out forwards;
+}
+
+@keyframes burstFade {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+}
+
+.floating-score-pop {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--color-bright-gold);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: scoreFloat 0.6s ease-out forwards;
+}
+
+@keyframes scoreFloat {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
+  100% { opacity: 0; transform: translate(-50%, -100px) scale(1.3); }
+}
+
+/* Custom Bucket Cursor Element */
+.bucket-cursor-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 76px;
+  height: 48px;
+  pointer-events: none;
+  z-index: 50;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  transition: transform 0.05s ease-out;
+}
+
+.bucket-cursor-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+}
+
+.bucket-motion-lines {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.motion-line {
+  width: 12px;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* ==================================================
+   4. GAME INSTRUCTIONS & FOOTER HUD
+   ================================================== */
+.hero-footer-instructions {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  padding: 0 10px;
+}
+
+.instruction-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--color-muted-blue);
+  text-transform: uppercase;
+}
+
+.instruction-item img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
+/* Game Over Overlay */
+.game-over-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 35, 56, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.game-over-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-over-card {
+  background: rgba(16, 45, 70, 0.95);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 24px;
+  padding: 40px 48px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  max-width: 440px;
+}
+
+.game-over-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-bright-gold);
+  margin-bottom: 12px;
+}
+
+.game-over-subtitle {
+  font-size: 16px;
+  color: var(--color-cream);
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.restart-btn {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-bright-gold));
+  color: var(--color-dark-navy);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px rgba(229, 174, 69, 0.3);
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 174, 69, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .nav-links { display: none; }
+  .hen-perch-container { width: 80%; }
+}
+
+@media (max-width: 640px) {
+  .navbar-capsule { height: 58px; padding: 0 16px; }
+  .hen-perch-container { top: -28px; width: 90%; }
+  .hen-item { width: 36px; height: 30px; }
+  .nav-hud { gap: 12px; padding-left: 12px; }
+  .score-value { font-size: 16px; }
+  .heart-icon { width: 16px; height: 16px; }
+  .hero-footer-instructions { flex-direction: column; gap: 8px; text-align: center; }
+}

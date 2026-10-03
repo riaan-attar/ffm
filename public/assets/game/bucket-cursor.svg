@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50" width="80" height="50">
+  <defs>
+    <linearGradient id="cBucketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2BD58"/>
+      <stop offset="100%" stop-color="#E5AE45"/>
+    </linearGradient>
+  </defs>
+  <!-- Handles -->
+  <path d="M 12 18 C 3 18, 3 30, 13 30" fill="none" stroke="#102D46" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M 68 18 C 77 18, 77 30, 67 30" fill="none" stroke="#102D46" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Main Bucket Body -->
+  <path d="M 12 13 L 18 41 C 19 45, 23 47, 27 47 L 53 47 C 57 47, 61 45, 62 41 L 68 13 Z" fill="url(#cBucketGrad)" stroke="#102D46" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <!-- Opening -->
+  <ellipse cx="40" cy="13" rx="28" ry="6" fill="#102D46"/>
+  <ellipse cx="40" cy="12" rx="29" ry="6" fill="#F2BD58" stroke="#102D46" stroke-width="2.5"/>
+</svg>

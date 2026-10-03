@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 75" width="120" height="75">
+  <defs>
+    <linearGradient id="bucketBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F2BD58"/>
+      <stop offset="100%" stop-color="#E5AE45"/>
+    </linearGradient>
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0B3"/>
+      <stop offset="100%" stop-color="#F2BD58"/>
+    </linearGradient>
+  </defs>
+  <!-- Side Handles -->
+  <path d="M 18 28 C 6 28, 6 44, 20 44" fill="none" stroke="#102D46" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M 102 28 C 114 28, 114 44, 100 44" fill="none" stroke="#102D46" stroke-width="4.5" stroke-linecap="round"/>
+  
+  <!-- Bucket Body -->
+  <path d="M 18 20 L 26 62 C 27 67, 32 70, 38 70 L 82 70 C 88 70, 93 67, 94 62 L 102 20 Z" fill="url(#bucketBodyGrad)" stroke="#102D46" stroke-width="3" stroke-linejoin="round"/>
+  
+  <!-- Body Shading Arc -->
+  <path d="M 28 62 L 92 62 C 86 67, 34 67, 28 62 Z" fill="#E5AE45" opacity="0.8"/>
+
+  <!-- Interior Opening Depth -->
+  <ellipse cx="60" cy="20" rx="42" ry="9" fill="#102D46"/>
+
+  <!-- Rim Outer Ring -->
+  <ellipse cx="60" cy="18" rx="44" ry="9" fill="url(#rimGrad)" stroke="#102D46" stroke-width="3"/>
+  <ellipse cx="60" cy="18" rx="36" ry="6" fill="none" stroke="#E5AE45" stroke-width="1.5" opacity="0.7"/>
+</svg>

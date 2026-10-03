@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" fill="none">
+  <defs>
+    <linearGradient id="dbNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#244A68"/>
+      <stop offset="100%" stop-color="#0E2436"/>
+    </linearGradient>
+    <linearGradient id="goldNodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="40%" stop-color="#F2BD58"/>
+      <stop offset="100%" stop-color="#C6891E"/>
+    </linearGradient>
+    <linearGradient id="creamTileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#EADBBE"/>
+    </linearGradient>
+    <filter id="shadowCrmLg" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#071724" flood-opacity="0.3"/>
+    </filter>
+    <filter id="shadowCrmSm" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#071724" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="150" r="110" fill="#E5AE45" opacity="0.14" filter="blur(26px)"/>
+
+  <!-- Network Interconnection Circuit Lines -->
+  <path d="M 120 120 L 200 150 L 280 110" stroke="#F2BD58" stroke-width="2.5" stroke-dasharray="5 5" opacity="0.6"/>
+  <path d="M 200 150 L 200 230" stroke="#102D46" stroke-width="2.5" opacity="0.5"/>
+  <path d="M 130 190 L 200 150 L 270 200" stroke="#102D46" stroke-width="2" stroke-dasharray="4 4" opacity="0.4"/>
+
+  <!-- Central 2.5D Database Cylinder Hub -->
+  <g transform="translate(160, 105)" filter="url(#shadowCrmLg)">
+    <!-- Database Tier 3 (Bottom) -->
+    <path d="M 0 55 C 0 45, 80 45, 80 55 L 80 75 C 80 85, 0 85, 0 75 Z" fill="url(#dbNavyGrad)" stroke="#396184" stroke-width="1.5"/>
+    <ellipse cx="40" cy="55" rx="40" ry="12" fill="#1C4466"/>
+    <!-- LED indicator -->
+    <circle cx="20" cy="68" r="3" fill="#F2BD58"/>
+    <circle cx="30" cy="68" r="3" fill="#10B981"/>
+
+    <!-- Database Tier 2 (Middle) -->
+    <path d="M 0 30 C 0 20, 80 20, 80 30 L 80 50 C 80 60, 0 60, 0 50 Z" fill="url(#dbNavyGrad)" stroke="#396184" stroke-width="1.5"/>
+    <ellipse cx="40" cy="30" rx="40" ry="12" fill="#1C4466"/>
+    <circle cx="20" cy="43" r="3" fill="#F2BD58"/>
+    <circle cx="30" cy="43" r="3" fill="#10B981"/>
+
+    <!-- Database Tier 1 (Top) -->
+    <path d="M 0 5 C 0 -5, 80 -5, 80 5 L 80 25 C 80 35, 0 35, 0 25 Z" fill="url(#dbNavyGrad)" stroke="#396184" stroke-width="1.5"/>
+    <ellipse cx="40" cy="5" rx="40" ry="12" fill="#2E5A80" stroke="#FFE89E" stroke-width="1.5"/>
+    <circle cx="20" cy="18" r="3" fill="#F2BD58"/>
+    <circle cx="30" cy="18" r="3" fill="#10B981"/>
+  </g>
+
+  <!-- Connected Node 1: Analytics / Finance Metric Card (Top Left) -->
+  <g transform="translate(65, 80)" filter="url(#shadowCrmSm)">
+    <rect x="0" y="0" width="75" height="60" rx="14" fill="url(#creamTileGrad)" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Mini Bar Chart -->
+    <rect x="14" y="32" width="8" height="16" rx="2" fill="#102D46"/>
+    <rect x="26" y="22" width="8" height="26" rx="2" fill="#102D46"/>
+    <rect x="38" y="14" width="8" height="34" rx="2" fill="#F2BD58"/>
+    <rect x="50" y="26" width="8" height="22" rx="2" fill="#102D46"/>
+  </g>
+
+  <!-- Connected Node 2: CRM Customer Orbit Node (Top Right) -->
+  <g transform="translate(265, 70)" filter="url(#shadowCrmSm)">
+    <rect x="0" y="0" width="70" height="65" rx="14" fill="url(#goldNodeGrad)" stroke="#FFF2C6" stroke-width="2"/>
+    <circle cx="35" cy="24" r="10" fill="#0B2338"/>
+    <path d="M 20 48 C 20 38, 26 36, 35 36 C 44 36, 50 38, 50 48 Z" fill="#0B2338"/>
+    <circle cx="52" cy="16" r="6" fill="#FFFFFF" stroke="#0B2338" stroke-width="1.5"/>
+    <path d="M 49 16 L 51 18 L 55 14" fill="none" stroke="#0B2338" stroke-width="1.5"/>
+  </g>
+
+  <!-- Connected Node 3: Inventory / Order Box (Bottom Right) -->
+  <g transform="translate(245, 175)" filter="url(#shadowCrmSm)">
+    <rect x="0" y="0" width="80" height="52" rx="12" fill="url(#creamTileGrad)" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="14" y="14" width="22" height="22" rx="6" fill="#102D46"/>
+    <path d="M 19 25 L 25 31 L 31 19" fill="none" stroke="#F2BD58" stroke-width="2"/>
+    <rect x="42" y="16" width="26" height="6" rx="3" fill="#102D46" opacity="0.8"/>
+    <rect x="42" y="26" width="18" height="5" rx="2.5" fill="#6D8290" opacity="0.6"/>
+  </g>
+
+  <!-- Connected Node 4: Cloud Sync Node (Bottom Left) -->
+  <g transform="translate(80, 175)" filter="url(#shadowCrmSm)">
+    <circle cx="25" cy="25" r="22" fill="url(#goldNodeGrad)" stroke="#FFE89E" stroke-width="1.5"/>
+    <!-- Cloud Icon -->
+    <path d="M 18 28 C 15 28, 14 25, 16 23 C 15 20, 18 17, 21 18 C 22 15, 27 15, 29 17 C 32 17, 34 19, 33 22 C 35 24, 34 28, 31 28 Z" fill="#0B2338"/>
+  </g>
+</svg>

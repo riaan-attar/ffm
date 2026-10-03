@@ -1,0 +1,252 @@
+/* ==================================================
+   FFM PROCESS SECTION
+   ================================================== */
+
+.process-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-dark-navy, #0B2338);
+  color: var(--color-cream, #F8F1DF);
+  padding: 90px 0 110px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.process-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==================================================
+   HEADER
+   ================================================== */
+.process-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-bottom: 80px;
+}
+
+.process-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.process-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--color-gold, #E5AE45);
+  text-transform: uppercase;
+}
+
+.process-eyebrow .eyebrow-line {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold, #E5AE45);
+  border-radius: 2px;
+}
+
+.process-headline {
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.process-headline .highlight-gold {
+  color: var(--color-gold, #E5AE45);
+}
+
+.process-header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 460px;
+}
+
+.process-header-copy {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+  max-width: 300px;
+}
+
+.process-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-gold, #E5AE45);
+  color: var(--color-cream, #F8F1DF);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.process-cta-btn:hover {
+  background: var(--color-gold, #E5AE45);
+  color: var(--color-dark-navy, #0B2338);
+}
+
+.process-cta-arrow {
+  width: 13px;
+  height: 13px;
+  filter: invert(82%) sepia(54%) saturate(620%) hue-rotate(345deg) brightness(98%) contrast(92%);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.process-cta-btn:hover .process-cta-arrow {
+  transform: translate(2px, -2px);
+  filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+}
+
+/* ==================================================
+   STEPS TIMELINE
+   ================================================== */
+.process-steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.process-steps-line {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  right: 28px;
+  height: 0;
+  border-top: 2px dashed rgba(229, 174, 69, 0.4);
+  z-index: 0;
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 260px;
+}
+
+.process-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-dark-navy, #0B2338);
+  border: 1.5px solid var(--color-gold, #E5AE45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.process-step-icon-svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-gold, #E5AE45);
+}
+
+.process-step-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  color: var(--color-gold, #E5AE45);
+}
+
+.process-step-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #FFFFFF;
+  margin: -8px 0 0;
+}
+
+.process-step-description {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-muted-cream, #E7DCC5);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 1024px) {
+  .process-container {
+    padding: 0 28px;
+  }
+
+  .process-steps {
+    flex-wrap: wrap;
+    row-gap: 48px;
+  }
+
+  .process-step {
+    flex: 0 0 calc(50% - 12px);
+    max-width: none;
+  }
+
+  .process-steps-line {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-section {
+    padding: 64px 0 72px;
+  }
+
+  .process-container {
+    padding: 0 16px;
+  }
+
+  .process-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 48px;
+  }
+
+  .process-header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: none;
+    gap: 18px;
+  }
+
+  .process-header-copy {
+    max-width: none;
+  }
+
+  .process-steps {
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  .process-step {
+    flex: 1 1 auto;
+  }
+}

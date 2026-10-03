@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">
+  <rect width="400" height="250" rx="16" fill="#102D46" stroke="#9EAFBD" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Abstract Cards -->
+  <rect x="40" y="50" width="95" height="150" rx="10" fill="#0B2338" stroke="#E5AE45" stroke-width="1.5"/>
+  <rect x="152.5" y="50" width="95" height="150" rx="10" fill="#0B2338" stroke="#F2BD58" stroke-width="1.5"/>
+  <rect x="265" y="50" width="95" height="150" rx="10" fill="#0B2338" stroke="#9EAFBD" stroke-width="1.5"/>
+  <!-- Lines inside cards -->
+  <circle cx="87.5" cy="85" r="14" fill="#E5AE45" opacity="0.3"/>
+  <circle cx="200" cy="85" r="14" fill="#F2BD58" opacity="0.5"/>
+  <circle cx="312.5" cy="85" r="14" fill="#9EAFBD" opacity="0.3"/>
+  
+  <rect x="57.5" y="120" width="60" height="8" rx="4" fill="#F8F1DF" opacity="0.7"/>
+  <rect x="170" y="120" width="60" height="8" rx="4" fill="#F8F1DF"/>
+  <rect x="282.5" y="120" width="60" height="8" rx="4" fill="#F8F1DF" opacity="0.7"/>
+
+  <rect x="57.5" y="140" width="40" height="6" rx="3" fill="#E5AE45" opacity="0.5"/>
+  <rect x="170" y="140" width="40" height="6" rx="3" fill="#F2BD58" opacity="0.8"/>
+  <rect x="282.5" y="140" width="40" height="6" rx="3" fill="#9EAFBD" opacity="0.5"/>
+</svg>
