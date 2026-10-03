@@ -53,6 +53,10 @@
   border-radius: 2px;
 }
 
+.process-eyebrow .eyebrow-line-right {
+  display: none;
+}
+
 .process-headline {
   font-size: clamp(32px, 3.4vw, 46px);
   font-weight: 900;
@@ -118,7 +122,7 @@
 }
 
 /* ==================================================
-   STEPS TIMELINE
+   STEPS TIMELINE (DESKTOP)
    ================================================== */
 .process-steps {
   position: relative;
@@ -135,6 +139,13 @@
   height: 0;
   border-top: 2px dashed rgba(229, 174, 69, 0.4);
   z-index: 0;
+}
+
+/* Tree Trunk spine & leaves hidden by default on desktop */
+.process-tree-trunk,
+.process-tree-sprout-wrapper,
+.process-step-badge {
+  display: none;
 }
 
 .process-step {
@@ -158,12 +169,24 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.process-step:hover .process-step-icon {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 174, 69, 0.3);
 }
 
 .process-step-icon-svg {
   width: 24px;
   height: 24px;
   color: var(--color-gold, #E5AE45);
+}
+
+.process-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .process-step-number {
@@ -179,7 +202,7 @@
   font-weight: 800;
   letter-spacing: -0.3px;
   color: #FFFFFF;
-  margin: -8px 0 0;
+  margin: 0;
 }
 
 .process-step-description {
@@ -192,7 +215,7 @@
 }
 
 /* ==================================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE BREAKPOINTS (TABLET)
    ================================================== */
 @media (max-width: 1024px) {
   .process-container {
@@ -214,57 +237,311 @@
   }
 }
 
+/* ==================================================
+   RESPONSIVE BREAKPOINTS (PHONE VIEW - CENTERED TREE BRANCH)
+   ================================================== */
 @media (max-width: 768px) {
   .process-section {
-    padding: 60px 0 72px;
+    padding: 56px 0 68px;
   }
 
   .process-container {
     padding: 0 16px;
   }
 
+  /* Centered Header on Mobile */
   .process-header {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    padding-bottom: 40px;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding-bottom: 44px;
+  }
+
+  .process-header-left {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .process-eyebrow {
+    justify-content: center;
+  }
+
+  .process-eyebrow .eyebrow-line-right {
+    display: inline-block;
+  }
+
+  .process-headline {
+    text-align: center;
+    font-size: clamp(26px, 6.5vw, 36px);
   }
 
   .process-header-right {
     flex-direction: column;
-    align-items: flex-start;
-    max-width: none;
+    align-items: center;
+    text-align: center;
+    max-width: 460px;
     gap: 16px;
+    margin: 0 auto;
     width: 100%;
   }
 
   .process-header-copy {
-    max-width: none;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 360px;
     font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .process-cta-btn {
-    width: 100%;
+    width: auto;
+    padding: 12px 28px;
     justify-content: center;
+    font-size: 11.5px;
   }
 
+  /* Centered Steps with Growing Vertical Tree Trunk */
   .process-steps {
+    position: relative;
+    display: flex;
     flex-direction: column;
-    row-gap: 28px;
+    align-items: center;
+    gap: 48px;
+    padding: 32px 0 20px;
+    width: 100%;
   }
 
-  .process-step {
-    flex: 1 1 auto;
+  .process-steps-line {
+    display: none;
+  }
+
+  /* Tree Trunk Spine */
+  .process-tree-trunk {
+    display: block;
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .process-trunk-track {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    gap: 12px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(229, 174, 69, 0.15) 0%,
+      rgba(229, 174, 69, 0.25) 50%,
+      rgba(229, 174, 69, 0.15) 100%
+    );
+    border-radius: 4px;
+  }
+
+  .process-trunk-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      var(--color-bright-gold, #F9D776) 0%,
+      var(--color-gold, #E5AE45) 60%,
+      #FFA726 100%
+    );
+    box-shadow: 0 0 12px rgba(229, 174, 69, 0.8), 0 0 22px rgba(229, 174, 69, 0.35);
+    border-radius: 4px;
+    transform-origin: top center;
+  }
+
+  .process-tree-root-sprout {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    filter: drop-shadow(0 0 8px rgba(229, 174, 69, 0.6));
+    animation: pulseRootSprout 2.6s ease-in-out infinite;
+  }
+
+  .process-tree-flourish-node {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    filter: drop-shadow(0 0 10px rgba(229, 174, 69, 0.85));
+    animation: pulseRootSprout 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseRootSprout {
+    0%, 100% {
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) scale(1.18);
+    }
+  }
+
+  /* Centered Step Nodes & Cards */
+  .process-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 14px;
+    box-sizing: border-box;
+  }
+
+  /* Sprout branch leaves & center node dot */
+  .process-tree-sprout-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 22px;
+    margin-bottom: -4px;
+  }
+
+  .process-tree-node-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--color-bright-gold, #F9D776);
+    border: 3px solid var(--color-dark-navy, #0B2338);
+    box-shadow: 0 0 0 2px var(--color-gold, #E5AE45), 0 0 12px rgba(229, 174, 69, 0.8);
+    z-index: 3;
+    position: relative;
+  }
+
+  .process-tree-leaf {
+    position: absolute;
+    top: 50%;
+    width: 34px;
+    height: 22px;
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  .process-tree-leaf.leaf-left {
+    right: calc(50% + 7px);
+    transform: translateY(-60%) rotate(-10deg);
+  }
+
+  .process-tree-leaf.leaf-right {
+    left: calc(50% + 7px);
+    transform: translateY(-60%) rotate(10deg);
+  }
+
+  /* Icon at Center */
+  .process-step-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #102D46 0%, #081B2B 100%);
+    border: 2px solid var(--color-gold, #E5AE45);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(229, 174, 69, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .process-step-icon-svg {
+    width: 27px;
+    height: 27px;
+    color: var(--color-gold, #E5AE45);
+  }
+
+  .process-step-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-bright-gold));
+    color: var(--color-dark-navy);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 900;
+    border-radius: 50%;
+    border: 2px solid var(--color-dark-navy);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Frosted Step Card */
+  .process-step-card {
+    background: rgba(16, 45, 70, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(229, 174, 69, 0.3);
+    border-radius: 20px;
+    padding: 18px 22px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .process-step-number {
+    display: none;
   }
 
   .process-step-title {
-    font-size: 18px;
+    font-size: clamp(18px, 4.5vw, 21px);
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: #FFFFFF;
     margin: 0;
   }
 
   .process-step-description {
     font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--color-muted-cream, #E7DCC5);
+    opacity: 0.88;
+    margin: 0;
+    max-width: 280px;
   }
 }
+
+@media (max-width: 420px) {
+  .process-step {
+    max-width: 320px;
+  }
+
+  .process-step-card {
+    padding: 16px 18px;
+  }
+
+  .process-step-title {
+    font-size: 18px;
+  }
+
+  .process-step-description {
+    font-size: 12.5px;
+  }
+}
+
