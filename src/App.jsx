@@ -10,10 +10,12 @@ import { ServicesSection } from './components/services/ServicesSection';
 import { WorkSection } from './components/work/WorkSection';
 import { StatsSection } from './components/stats/StatsSection';
 import { ProcessSection } from './components/process/ProcessSection';
+import { Footer } from './components/footer/Footer';
 import './styles/services.css';
 import './styles/work.css';
 import './styles/stats.css';
 import './styles/process.css';
+import './styles/footer.css';
 
 export default function App() {
   const {
@@ -73,6 +75,9 @@ export default function App() {
 
       {/* 5. Process / How We Work Section (Dark Navy Background) */}
       <ProcessSection />
+
+      {/* 6. Site Footer (Cream Background) */}
+      <Footer />
     </div>
   );
 }

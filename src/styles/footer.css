@@ -1,0 +1,249 @@
+/* ==================================================
+   FFM SITE FOOTER
+   ================================================== */
+
+.site-footer {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-cream, #F8F1DF);
+  color: var(--color-dark-navy, #0B2338);
+  padding: 56px 0 28px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.footer-container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================================================
+   NAV ROWS
+   ================================================== */
+.footer-nav-primary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-nav-primary a {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--color-dark-navy, #0B2338);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-nav-primary a:hover {
+  color: var(--color-gold, #E5AE45);
+}
+
+.footer-nav-secondary {
+  display: flex;
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.footer-nav-secondary a {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-dark-navy, #0B2338);
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.footer-nav-secondary a:hover {
+  opacity: 1;
+  color: var(--color-gold, #E5AE45);
+}
+
+/* ==================================================
+   MID ROW: TAGLINE + SOCIALS
+   ================================================== */
+.footer-mid-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-top: 64px;
+}
+
+.footer-tagline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-tagline {
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.footer-copy {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-dark-navy, #0B2338);
+  opacity: 0.55;
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.footer-social-link {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-dark-navy, #0B2338);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.footer-social-link:hover {
+  opacity: 1;
+  color: var(--color-gold, #E5AE45);
+}
+
+/* ==================================================
+   GIANT WORDMARK
+   ================================================== */
+.footer-wordmark-wrap {
+  position: relative;
+  margin-top: 28px;
+  will-change: transform, opacity;
+}
+
+.footer-wordmark-shapes {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.4vw, 20px);
+  padding-left: clamp(4px, 1vw, 14px);
+  margin-bottom: 4px;
+}
+
+.fw-shape {
+  display: block;
+  background: var(--color-gold, #E5AE45);
+  flex-shrink: 0;
+}
+
+.fw-shape-circle {
+  width: clamp(28px, 3.2vw, 46px);
+  height: clamp(28px, 3.2vw, 46px);
+  border-radius: 50%;
+}
+
+.fw-shape-hexagon {
+  width: clamp(28px, 3.2vw, 46px);
+  height: clamp(28px, 3.2vw, 46px);
+  background: var(--color-bright-gold, #F2BD58);
+  clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0% 50%);
+}
+
+.fw-shape-triangle {
+  width: clamp(28px, 3.2vw, 46px);
+  height: clamp(28px, 3.2vw, 46px);
+  background: var(--color-gold, #E5AE45);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.fw-shape-square {
+  width: clamp(22px, 2.6vw, 38px);
+  height: clamp(22px, 2.6vw, 38px);
+  border-radius: 4px;
+  background: var(--color-dark-navy, #0B2338);
+}
+
+.fw-shape-bar {
+  flex: 1;
+  max-width: 220px;
+  height: clamp(22px, 2.6vw, 38px);
+  border-radius: 4px;
+  background: var(--color-dark-navy, #0B2338);
+}
+
+.footer-wordmark {
+  font-family: var(--font-sans);
+  font-size: clamp(90px, 16vw, 230px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -4px;
+  color: var(--color-dark-navy, #0B2338);
+  margin: 0;
+  user-select: none;
+}
+
+.footer-wordmark-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-wordmark-link:hover {
+  color: var(--color-gold, #E5AE45);
+}
+
+.footer-copy-link {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(16, 45, 70, 0.3);
+  text-underline-offset: 2px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+.footer-copy-link:hover {
+  color: var(--color-gold, #E5AE45);
+  text-decoration-color: currentColor;
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================== */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 44px 0 24px;
+  }
+
+  .footer-container {
+    padding: 0 16px;
+  }
+
+  .footer-nav-primary {
+    flex-wrap: wrap;
+    gap: 16px 28px;
+  }
+
+  .footer-mid-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .footer-socials {
+    gap: 16px;
+  }
+
+  .footer-wordmark-wrap {
+    margin-top: 20px;
+  }
+
+  .fw-shape-bar {
+    max-width: 80px;
+  }
+}
