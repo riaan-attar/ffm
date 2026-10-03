@@ -23,9 +23,7 @@ export function WorkSection() {
     const ctx = gsap.context(() => {
       const totalCards = cards.length;
 
-      // Only the first card sits in place; the rest wait fully off-screen
-      // below the stage. yPercent is relative to each card's own height, so
-      // this is correct regardless of viewport size or layout timing.
+      // Only the first card sits in place; the rest wait fully off-screen below the stage
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: i + 1,
@@ -36,14 +34,17 @@ export function WorkSection() {
         });
       });
 
+      const isMobile = window.innerWidth <= 768;
+      const scrollPerCard = isMobile ? 550 : 750;
+
       const tl = gsap.timeline({
         defaults: { ease: 'sine.inOut' },
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${totalCards * 750}`,
+          end: () => `+=${totalCards * scrollPerCard}`,
           pin: true,
-          scrub: 0.8,
+          scrub: 0.7,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -58,8 +59,7 @@ export function WorkSection() {
 
       timelineRef.current = tl;
 
-      // Each subsequent card climbs up from below and fully covers the one
-      // before it, so cards visually pile on top of one another.
+      // Each subsequent card climbs up from below and fully covers the one before it
       for (let i = 1; i < totalCards; i++) {
         const prevCard = cards[i - 1];
         const currentCard = cards[i];
@@ -78,24 +78,32 @@ export function WorkSection() {
 
       const refresh = () => ScrollTrigger.refresh();
       window.addEventListener('load', refresh);
+      window.addEventListener('resize', refresh);
+
       const imgs = section.querySelectorAll('img');
       imgs.forEach(img => {
         if (!img.complete) img.addEventListener('load', refresh, { once: true });
       });
 
-      return () => window.removeEventListener('load', refresh);
+      return () => {
+        window.removeEventListener('load', refresh);
+        window.removeEventListener('resize', refresh);
+      };
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   const goTo = useCallback((index) => {
+    const clampedIndex = Math.max(0, Math.min(WORK_DATA.length - 1, index));
     if (timelineRef.current && timelineRef.current.scrollTrigger) {
       const st = timelineRef.current.scrollTrigger;
       const step = 1 / (WORK_DATA.length - 1);
-      const targetProgress = Math.min(1, Math.max(0, index * step));
-      const targetScroll = st.start + targetProgress * (st.end - st.start);
+      const targetProgress = Math.min(1, Math.max(0, clampedIndex * step));
+      const targetScroll = st.start + targetProgress * (st.end - st.start) + 2;
       window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    } else {
+      setActiveIndex(clampedIndex);
     }
   }, []);
 

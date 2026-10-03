@@ -25,30 +25,29 @@ export function ServicesSection() {
     const ctx = gsap.context(() => {
       const totalCards = cards.length;
 
-      // Setup initial positions & z-indexes: only the first card is in view,
-      // the rest wait fully off-screen to the right (one card at a time).
-      // xPercent (relative to the card's own width) is used instead of a
-      // measured pixel width so this stays correct regardless of viewport
-      // size, orientation changes, or layout timing on mobile.
+      // Card 0 in place, cards 1..N wait off-screen to the right
       cards.forEach((card, i) => {
         gsap.set(card, {
           zIndex: i + 1,
           xPercent: i === 0 ? 0 : 100,
           scale: 1,
           opacity: 1,
+          y: 0,
           force3D: true
         });
       });
 
-      // Master Timeline for ScrollTrigger
+      const isMobile = window.innerWidth <= 768;
+      const scrollPerCard = isMobile ? 500 : 650;
+
       const tl = gsap.timeline({
         defaults: { ease: 'sine.inOut' },
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: () => `+=${totalCards * 650}`,
+          end: () => `+=${totalCards * scrollPerCard}`,
           pin: true,
-          scrub: 0.8,
+          scrub: 0.7,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -63,21 +62,16 @@ export function ServicesSection() {
 
       timelineRef.current = tl;
 
-      // Animate each subsequent card sliding in fully over the previous one,
-      // so only one card is ever visible at a time
+      // Animate each subsequent card sliding in over the previous card
       for (let i = 1; i < totalCards; i++) {
         const prevCard = cards[i - 1];
         const currentCard = cards[i];
 
-        // Slide the current card fully in from the right, covering the previous one
         tl.to(currentCard, {
           xPercent: 0,
           duration: 1
         }, `card-${i}`);
 
-        // Slightly scale down and dim the previous card as it gets covered.
-        // Opacity is used instead of a CSS filter so this stays smooth/cheap
-        // to render on mobile GPUs.
         tl.to(prevCard, {
           scale: 0.94,
           y: -8,
@@ -86,40 +80,44 @@ export function ServicesSection() {
         }, `card-${i}-stack`);
       }
 
-      // Layout can shift once hero/game assets and card images finish loading,
-      // so recalc the pin distances instead of leaving the first (wrong) measurement.
       const refresh = () => ScrollTrigger.refresh();
       window.addEventListener('load', refresh);
+      window.addEventListener('resize', refresh);
+
       const imgs = section.querySelectorAll('img');
       imgs.forEach(img => {
         if (!img.complete) img.addEventListener('load', refresh, { once: true });
       });
 
-      return () => window.removeEventListener('load', refresh);
+      return () => {
+        window.removeEventListener('load', refresh);
+        window.removeEventListener('resize', refresh);
+      };
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  const handlePrev = useCallback(() => {
+  const goToCard = useCallback((index) => {
+    const clampedIndex = Math.max(0, Math.min(SERVICES_DATA.length - 1, index));
     if (timelineRef.current && timelineRef.current.scrollTrigger) {
       const st = timelineRef.current.scrollTrigger;
       const step = 1 / (SERVICES_DATA.length - 1);
-      const targetProgress = Math.max(0, st.progress - step);
-      const targetScroll = st.start + targetProgress * (st.end - st.start);
+      const targetProgress = clampedIndex * step;
+      const targetScroll = st.start + targetProgress * (st.end - st.start) + 2;
       window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    } else {
+      setActiveCardIndex(clampedIndex);
     }
   }, []);
 
+  const handlePrev = useCallback(() => {
+    goToCard(activeCardIndex - 1);
+  }, [activeCardIndex, goToCard]);
+
   const handleNext = useCallback(() => {
-    if (timelineRef.current && timelineRef.current.scrollTrigger) {
-      const st = timelineRef.current.scrollTrigger;
-      const step = 1 / (SERVICES_DATA.length - 1);
-      const targetProgress = Math.min(1, st.progress + step);
-      const targetScroll = st.start + targetProgress * (st.end - st.start);
-      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-    }
-  }, []);
+    goToCard(activeCardIndex + 1);
+  }, [activeCardIndex, goToCard]);
 
   return (
     <section id="services" ref={sectionRef} className="services-section">
@@ -167,7 +165,7 @@ export function ServicesSection() {
               {SERVICES_DATA.map((service, index) => (
                 <div
                   key={service.id || index}
-                  ref={el => cardsRef.current[index] = el}
+                  ref={el => (cardsRef.current[index] = el)}
                   className="services-stack-card-wrapper"
                 >
                   <ServiceCard

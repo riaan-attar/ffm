@@ -55,7 +55,7 @@
 }
 
 .work-headline {
-  font-size: clamp(34px, 3.6vw, 48px);
+  font-size: clamp(32px, 3.6vw, 48px);
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -1.2px;
@@ -119,12 +119,12 @@
 }
 
 /* ==================================================
-   STACK STAGE
+   STACK STAGE (DESKTOP & MOBILE)
    ================================================== */
 .work-stage {
   position: relative;
   width: 100%;
-  height: 640px;
+  height: 600px;
   overflow: hidden;
   border-radius: 28px;
 }
@@ -144,7 +144,7 @@
 }
 
 /* ==================================================
-   HUGE CASE STUDY CARD
+   CASE STUDY CARD
    ================================================== */
 .work-card {
   width: 100%;
@@ -163,17 +163,17 @@
   flex-direction: row-reverse;
 }
 
-/* --- Visual / Live Preview Column --- */
+/* --- Visual Column --- */
 .work-card-visual-col {
-  flex: 0 0 62%;
-  max-width: 62%;
+  flex: 0 0 58%;
+  max-width: 58%;
   height: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(11, 35, 56, 0.5);
-  padding: 48px;
+  padding: 40px;
   box-sizing: border-box;
 }
 
@@ -182,7 +182,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.4));
 }
 
 /* --- Content Column --- */
@@ -193,8 +193,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  padding: 56px 64px;
+  gap: 18px;
+  padding: 48px 56px;
   box-sizing: border-box;
 }
 
@@ -207,7 +207,7 @@
 }
 
 .work-card-title {
-  font-size: clamp(30px, 3vw, 42px);
+  font-size: clamp(26px, 2.8vw, 38px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.6px;
@@ -219,7 +219,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -233,12 +233,12 @@
 }
 
 .work-card-description {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--color-muted-cream, #E7DCC5);
   opacity: 0.85;
-  margin: 4px 0 8px;
+  margin: 2px 0 6px;
   max-width: 46ch;
 }
 
@@ -295,6 +295,7 @@
   background: rgba(158, 175, 189, 0.35);
   cursor: pointer;
   transition: all 0.3s ease;
+  touch-action: manipulation;
 }
 
 .work-progress-dot.is-active {
@@ -308,86 +309,146 @@
    ================================================== */
 @media (max-width: 1024px) {
   .work-container {
-    padding: 0 24px;
-  }
-
-  .work-stage {
-    height: 720px;
-  }
-
-  .work-card,
-  .work-card-reverse {
-    flex-direction: column;
-  }
-
-  .work-card-visual-col {
-    flex: 0 0 42%;
-    max-width: 100%;
-    padding: 32px 32px 0;
+    padding: 0 28px;
   }
 
   .work-card-content-col {
-    padding: 28px 32px 32px;
-    gap: 14px;
-    justify-content: flex-start;
-  }
-
-  .work-card-description {
-    max-width: none;
+    padding: 36px 40px;
   }
 }
 
+/* TABLET & MOBILE VIEWPORT (<= 768px) */
 @media (max-width: 768px) {
   .work-section {
-    padding: 72px 0 60px;
+    padding: 36px 0 40px;
   }
 
   .work-container {
-    padding: 0 16px;
+    padding: 0 14px;
   }
 
   .work-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-    padding-bottom: 32px;
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+
+  .work-header-left {
+    gap: 6px;
+  }
+
+  .work-headline {
+    font-size: clamp(22px, 5.5vw, 30px);
   }
 
   .work-header-right {
     flex-direction: column;
     align-items: flex-start;
     max-width: none;
-    gap: 20px;
+    gap: 10px;
+    width: 100%;
   }
 
   .work-header-copy {
     max-width: none;
+    font-size: 12.5px;
+    line-height: 1.45;
   }
 
+  .work-view-all-btn {
+    padding: 9px 18px;
+    font-size: 11px;
+  }
+
+  /* Responsive Stage & Cards for Stacking Animation */
   .work-stage {
-    height: 760px;
-    border-radius: 22px;
+    position: relative;
+    width: 100%;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 20px;
   }
 
-  .work-card {
-    border-radius: 22px;
+  .work-stack-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .work-stack-card-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .work-card,
+  .work-card-reverse {
+    flex-direction: column;
+    border-radius: 20px;
+    height: 100%;
   }
 
   .work-card-visual-col {
-    flex: 0 0 38%;
-    padding: 24px 24px 0;
+    flex: 0 0 160px;
+    max-width: 100%;
+    height: 160px;
+    padding: 12px 16px;
+    background: rgba(11, 35, 56, 0.4);
+  }
+
+  .work-card-preview-img {
+    max-height: 136px;
   }
 
   .work-card-content-col {
-    padding: 20px 24px 24px;
-    gap: 12px;
+    flex: 1;
+    padding: 16px 18px 18px;
+    gap: 8px;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .work-card-number {
+    font-size: 15px;
   }
 
   .work-card-title {
-    font-size: 24px;
+    font-size: clamp(18px, 4.5vw, 22px);
+  }
+
+  .work-card-tags {
+    font-size: 11.5px;
+    gap: 6px;
   }
 
   .work-card-description {
-    font-size: 14px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    max-width: 100%;
+  }
+
+  .work-card-link {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 20px;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .work-progress-dots {
+    padding-top: 14px;
+    gap: 8px;
+  }
+
+  .work-progress-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .work-progress-dot.is-active {
+    width: 22px;
   }
 }

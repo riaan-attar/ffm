@@ -7,6 +7,7 @@
   width: 100%;
   background-color: var(--color-cream, #F8F1DF);
   border-top: 1px solid rgba(16, 45, 70, 0.08);
+  border-bottom: 1px solid rgba(16, 45, 70, 0.08);
   padding: 44px 0;
   z-index: 10;
 }
@@ -42,7 +43,7 @@
 }
 
 .stats-value {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight: 900;
   letter-spacing: -0.5px;
   color: var(--color-gold, #E5AE45);
@@ -53,33 +54,35 @@
   font-size: 13px;
   font-weight: 600;
   color: var(--color-dark-navy, #0B2338);
-  opacity: 0.65;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
+  .stats-section {
+    padding: 36px 0;
+  }
+
   .stats-container {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 16px;
-    row-gap: 28px;
+    gap: 24px 16px;
   }
 
   .stats-item {
-    flex: 0 0 50%;
-    padding: 0 12px;
+    flex: auto;
+    padding: 0 8px;
   }
 
   .stats-item:not(:last-child)::after {
     display: none;
   }
 
-  .stats-item:nth-child(odd)::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 1.5px;
-    height: 36px;
-    background: rgba(16, 45, 70, 0.12);
+  .stats-value {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .stats-label {
+    font-size: 12px;
   }
 }

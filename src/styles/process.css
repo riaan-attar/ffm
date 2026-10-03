@@ -26,7 +26,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 72px;
 }
 
 .process-header-left {
@@ -201,11 +201,11 @@
 
   .process-steps {
     flex-wrap: wrap;
-    row-gap: 48px;
+    row-gap: 40px;
   }
 
   .process-step {
-    flex: 0 0 calc(50% - 12px);
+    flex: 0 0 calc(50% - 16px);
     max-width: none;
   }
 
@@ -216,7 +216,7 @@
 
 @media (max-width: 768px) {
   .process-section {
-    padding: 64px 0 72px;
+    padding: 60px 0 72px;
   }
 
   .process-container {
@@ -226,27 +226,45 @@
   .process-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-    padding-bottom: 48px;
+    gap: 20px;
+    padding-bottom: 40px;
   }
 
   .process-header-right {
     flex-direction: column;
     align-items: flex-start;
     max-width: none;
-    gap: 18px;
+    gap: 16px;
+    width: 100%;
   }
 
   .process-header-copy {
     max-width: none;
+    font-size: 13.5px;
+  }
+
+  .process-cta-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .process-steps {
     flex-direction: column;
-    row-gap: 32px;
+    row-gap: 28px;
   }
 
   .process-step {
     flex: 1 1 auto;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .process-step-title {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .process-step-description {
+    font-size: 13.5px;
   }
 }

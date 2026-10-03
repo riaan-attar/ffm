@@ -20,7 +20,7 @@
   display: flex;
   gap: 48px;
   position: relative;
-  min-height: 680px;
+  min-height: 580px;
 }
 
 /* ==================================================
@@ -36,8 +36,6 @@
 }
 
 .vertical-marquee-wrapper {
-  /* Absolutely positioned so the marquee's tall looping content never
-     inflates the sidebar's (and thus the whole section's) height. */
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -67,8 +65,6 @@
 
 .vertical-marquee-content {
   display: flex;
-  /* Under vertical-rl, the flex main axis follows the block axis (horizontal),
-     so "row" is what actually stacks these items top-to-bottom on screen. */
   flex-direction: row;
   align-items: center;
   writing-mode: vertical-rl;
@@ -80,7 +76,7 @@
 
 .marquee-word {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(50px, 4.4vw, 66px);
+  font-size: clamp(40px, 4vw, 66px);
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--color-navy, #102D46);
@@ -89,14 +85,14 @@
 
 .marquee-num {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(48px, 4.2vw, 62px);
+  font-size: clamp(38px, 3.8vw, 62px);
   font-weight: 900;
   color: var(--color-gold, #E5AE45);
   line-height: 1;
 }
 
 .marquee-dot {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--color-gold, #E5AE45);
   opacity: 0.85;
   display: inline-flex;
@@ -112,7 +108,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 36px;
 }
 
 .services-header {
@@ -120,7 +116,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 32px;
-  padding-right: 16px;
+  padding-right: 8px;
 }
 
 .services-header-left {
@@ -148,7 +144,7 @@
 }
 
 .services-headline {
-  font-size: clamp(32px, 3.6vw, 48px);
+  font-size: clamp(28px, 3.4vw, 48px);
   font-weight: 900;
   line-height: 1.12;
   letter-spacing: -1.2px;
@@ -196,6 +192,7 @@
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   outline: none;
+  touch-action: manipulation;
 }
 
 .services-prev-btn {
@@ -241,10 +238,8 @@
 .services-parallax-stage {
   position: relative;
   width: 100%;
-  height: 460px;
+  height: 480px;
   overflow: hidden;
-  /* Match the card's radius so this clipping box doesn't leave a sharp,
-     un-rounded corner where the card's own shadow bleeds through. */
   border-radius: 26px;
 }
 
@@ -260,12 +255,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  will-change: transform, filter;
-  transition: filter 0.3s ease;
+  will-change: transform, opacity;
 }
 
 /* ==================================================
-   SERVICE CARDS (FULL-WIDTH, ONE-AT-A-TIME LAYOUT)
+   SERVICE CARDS
    ================================================== */
 .service-card {
   width: 100%;
@@ -279,7 +273,6 @@
   position: relative;
   user-select: none;
   box-sizing: border-box;
-  box-shadow: none;
 }
 
 .service-card-visual-col {
@@ -296,7 +289,7 @@
   background: linear-gradient(145deg, #133552, #0A2033);
   color: var(--color-cream, #F8F1DF);
   border: 1.5px solid rgba(242, 189, 88, 0.22);
-  box-shadow: none;
+  box-shadow: 0 16px 36px rgba(11, 35, 56, 0.16);
 }
 
 .service-card-dark .service-card-number {
@@ -340,7 +333,7 @@
   background: #FFFFFF;
   color: var(--color-dark-navy, #0B2338);
   border: 1.5px solid rgba(16, 45, 70, 0.12);
-  box-shadow: none;
+  box-shadow: 0 16px 36px rgba(16, 45, 70, 0.08);
 }
 
 .service-card-light .service-card-number {
@@ -423,17 +416,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px;
+  gap: 22px;
 }
 
 .service-card-text {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .service-card-title {
-  font-size: 32px;
+  font-size: clamp(24px, 2.5vw, 32px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.6px;
@@ -451,7 +444,7 @@
 .service-card-features {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -520,30 +513,18 @@
    ================================================== */
 @media (max-width: 1024px) {
   .services-container {
-    padding: 0 24px;
+    padding: 0 28px;
     gap: 32px;
   }
   
-  .services-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .services-header-right {
-    width: 100%;
-    justify-content: space-between;
-    max-width: none;
-  }
-
   .service-card {
     padding: 32px 36px;
     gap: 32px;
   }
 
   .service-card-visual-col {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 38%;
+    max-width: 38%;
   }
 
   .service-card-title {
@@ -551,29 +532,36 @@
   }
 }
 
+/* TABLET & MOBILE VIEWPORT (<= 768px) */
 @media (max-width: 768px) {
   .services-section {
-    padding: 60px 0 80px;
+    padding: 36px 0 40px;
   }
 
   .services-container {
     flex-direction: column;
-    gap: 28px;
-    padding: 0 16px;
+    gap: 14px;
+    padding: 0 14px;
+    min-height: auto;
   }
 
+  /* Horizontal Marquee Ticker on Mobile */
   .services-vertical-marquee-sidebar {
     width: 100%;
+    height: 38px;
     border-right: none;
-    border-bottom: 1.5px solid rgba(16, 45, 70, 0.15);
-    padding: 0 0 12px;
-    height: auto;
-    min-height: auto;
+    border-bottom: 1.5px solid rgba(16, 45, 70, 0.12);
+    padding: 0;
+    align-self: auto;
   }
 
   .vertical-marquee-wrapper {
-    min-height: auto;
+    position: relative;
+    inset: auto;
     width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     overflow: hidden;
   }
 
@@ -591,93 +579,165 @@
     flex-direction: row;
     writing-mode: horizontal-tb;
     transform: none;
-    gap: 24px;
-    padding: 8px 0;
+    gap: 20px;
+    padding: 0;
   }
 
   .marquee-word {
-    font-size: 28px;
+    font-size: 20px;
   }
 
   .marquee-num {
-    font-size: 26px;
-  }
-
-  .marquee-dot {
     font-size: 18px;
   }
 
-  .services-header-right {
+  .marquee-dot {
+    font-size: 14px;
+  }
+
+  .services-main-content {
+    gap: 16px;
+  }
+
+  .services-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 10px;
+    padding-right: 0;
+  }
+
+  .services-header-left {
+    gap: 6px;
+  }
+
+  .services-headline {
+    font-size: clamp(22px, 5.5vw, 30px);
+  }
+
+  .services-header-right {
+    width: 100%;
+    max-width: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
   }
 
   .services-header-copy {
     max-width: none;
+    font-size: 12.5px;
+    line-height: 1.45;
+    flex: 1;
   }
 
+  .services-nav-controls {
+    gap: 8px;
+  }
+
+  .services-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .services-nav-btn img {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Responsive Stage & Cards for Stacking Animation */
   .services-parallax-stage {
-    height: 700px;
+    position: relative;
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .services-stack-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .services-stack-card-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .service-card {
+    height: 100%;
+    padding: 20px 18px;
+    border-radius: 20px;
     flex-direction: column;
     align-items: stretch;
-    gap: 16px;
-    padding: 24px 20px;
-    overflow-y: auto;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .service-card-visual-col {
     flex: 0 0 auto;
     max-width: 100%;
     height: auto;
-    flex-direction: column-reverse;
-    gap: 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .service-card-visual {
-    height: 130px;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    margin: 0;
+  }
+
+  .service-card-img {
+    max-width: 40px;
+    max-height: 40px;
   }
 
   .service-card-body {
+    flex: 1;
     height: auto;
-    gap: 14px;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .service-card-text {
+    gap: 4px;
   }
 
   .service-card-title {
-    font-size: 22px;
+    font-size: clamp(19px, 4.5vw, 22px);
   }
 
   .service-card-description {
     max-width: none;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .service-card-features {
-    gap: 10px;
+    gap: 6px;
   }
 
   .service-card-feature {
-    font-size: 13px;
+    font-size: 12.5px;
+    gap: 8px;
+  }
+
+  .service-card-feature-check {
+    width: 17px;
+    height: 17px;
+    font-size: 9.5px;
   }
 
   .service-card-btn {
-    padding: 12px 24px;
-  }
-}
-
-@media (max-width: 420px) {
-  .services-parallax-stage {
-    height: 740px;
-  }
-
-  .service-card-visual {
-    height: 110px;
-  }
-
-  .service-card-title {
-    font-size: 20px;
+    width: 100%;
+    justify-content: center;
+    padding: 11px 20px;
+    font-size: 11px;
+    margin-top: 2px;
   }
 }
