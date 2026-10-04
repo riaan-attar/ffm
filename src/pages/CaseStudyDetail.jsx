@@ -196,15 +196,22 @@ export default function CaseStudyDetail() {
         );
       }
 
-      const refresh = () => ScrollTrigger.refresh();
-      window.addEventListener('load', refresh);
+      // Coalesce multiple image loads into a single refresh instead of one
+      // ScrollTrigger.refresh() call per image.
+      let refreshTimer = null;
+      const scheduleRefresh = () => {
+        clearTimeout(refreshTimer);
+        refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 120);
+      };
+      window.addEventListener('load', scheduleRefresh);
       const imgs = root.querySelectorAll('img');
       imgs.forEach((img) => {
-        if (!img.complete) img.addEventListener('load', refresh, { once: true });
+        if (!img.complete) img.addEventListener('load', scheduleRefresh, { once: true });
       });
 
       return () => {
-        window.removeEventListener('load', refresh);
+        clearTimeout(refreshTimer);
+        window.removeEventListener('load', scheduleRefresh);
       };
     }, rootRef);
 

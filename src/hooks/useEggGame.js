@@ -24,6 +24,27 @@ export function useEggGame() {
   const activeEggsRef = useRef([]);
   const isSpawningRef = useRef(false);
   const audioCtxRef = useRef(null);
+  // Starts true so the game runs immediately on first paint, before the
+  // IntersectionObserver below has had a chance to report back.
+  const isHeroVisibleRef = useRef(true);
+
+  // Pause the physics/render loop entirely once the hero scrolls out of
+  // view. Without this, the loop (and its 60x/sec setState calls) kept
+  // running for as long as the page was mounted, competing with GSAP's
+  // ScrollTrigger scrub animations for main-thread time further down the
+  // page and causing dropped frames during scroll.
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const heroEl = document.getElementById('hero-section');
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => { isHeroVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(heroEl);
+    return () => observer.disconnect();
+  }, []);
 
   // Sync ref
   useEffect(() => {
@@ -261,6 +282,13 @@ export function useEggGame() {
     }, 400);
 
     const loop = () => {
+      // Keep the rAF chain alive (cheap) but skip all physics/state work
+      // while the hero is scrolled out of view.
+      if (!isHeroVisibleRef.current) {
+        animId = requestAnimationFrame(loop);
+        return;
+      }
+
       // 1. Lerp bucket toward mouse
       const targetX = mousePosRef.current.x;
       const targetY = mousePosRef.current.y;

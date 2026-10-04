@@ -79,18 +79,24 @@ export const WorkSection = React.memo(function WorkSection() {
         }, `card-${i}-stack`);
       }
 
-      const refresh = () => ScrollTrigger.refresh();
-      window.addEventListener('load', refresh);
-      window.addEventListener('resize', refresh);
+      // See the identical comment in ServicesSection.jsx: coalesce image
+      // loads into one refresh instead of one per image, and don't
+      // duplicate ScrollTrigger's own built-in resize handling.
+      let refreshTimer = null;
+      const scheduleRefresh = () => {
+        clearTimeout(refreshTimer);
+        refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 120);
+      };
+      window.addEventListener('load', scheduleRefresh);
 
       const imgs = section.querySelectorAll('img');
       imgs.forEach(img => {
-        if (!img.complete) img.addEventListener('load', refresh, { once: true });
+        if (!img.complete) img.addEventListener('load', scheduleRefresh, { once: true });
       });
 
       return () => {
-        window.removeEventListener('load', refresh);
-        window.removeEventListener('resize', refresh);
+        clearTimeout(refreshTimer);
+        window.removeEventListener('load', scheduleRefresh);
       };
     }, sectionRef);
 

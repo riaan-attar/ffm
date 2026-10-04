@@ -28,7 +28,7 @@ export function Navbar() {
         <div className="nav-brand-container">
           <Link to="/" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
             <img src="/assets/brand/ffm-logo-icon.png" alt="FFM" className="brand-logo-icon" />
-            <span className="brand-logo-text">DESIGN by FFM</span>
+            <span className="brand-logo-text">FFM</span>
           </Link>
         </div>
 
@@ -70,7 +70,7 @@ export function Navbar() {
           <div className="mobile-nav-header">
             <Link to="/" className="brand-logo" title="FFM Agency" onClick={closeMenu}>
               <img src="/assets/brand/ffm-logo-icon.png" alt="FFM" className="brand-logo-icon" />
-              <span className="brand-logo-text">DESIGN by FFM</span>
+              <span className="brand-logo-text">FFM</span>
             </Link>
             <button
               type="button"

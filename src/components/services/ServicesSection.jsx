@@ -82,18 +82,27 @@ export const ServicesSection = React.memo(function ServicesSection() {
         }, `card-${i}-stack`);
       }
 
-      const refresh = () => ScrollTrigger.refresh();
-      window.addEventListener('load', refresh);
-      window.addEventListener('resize', refresh);
+      // ScrollTrigger.refresh() recalculates every pinned trigger on the
+      // page and is expensive, so this coalesces multiple card images
+      // loading in quick succession into a single call instead of one per
+      // image. Resize is intentionally NOT handled here - ScrollTrigger
+      // already refreshes on window resize internally, so adding our own
+      // listener was pure duplicate work.
+      let refreshTimer = null;
+      const scheduleRefresh = () => {
+        clearTimeout(refreshTimer);
+        refreshTimer = setTimeout(() => ScrollTrigger.refresh(), 120);
+      };
+      window.addEventListener('load', scheduleRefresh);
 
       const imgs = section.querySelectorAll('img');
       imgs.forEach(img => {
-        if (!img.complete) img.addEventListener('load', refresh, { once: true });
+        if (!img.complete) img.addEventListener('load', scheduleRefresh, { once: true });
       });
 
       return () => {
-        window.removeEventListener('load', refresh);
-        window.removeEventListener('resize', refresh);
+        clearTimeout(refreshTimer);
+        window.removeEventListener('load', scheduleRefresh);
       };
     }, sectionRef);
 

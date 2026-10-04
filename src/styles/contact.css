@@ -217,9 +217,16 @@
   margin-top: 4px;
 }
 
-.contact-submit-btn:hover {
+.contact-submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 10px 26px rgba(229, 174, 69, 0.4);
+}
+
+.contact-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .contact-submit-arrow {
@@ -229,8 +236,19 @@
   transition: transform 0.25s ease;
 }
 
-.contact-submit-btn:hover .contact-submit-arrow {
+.contact-submit-btn:hover:not(:disabled) .contact-submit-arrow {
   transform: translate(2px, -2px);
+}
+
+.contact-error-msg {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 2px;
 }
 
 /* ==================================================

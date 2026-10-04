@@ -14,6 +14,8 @@ const INITIAL_FORM = {
 // Memoized: hideIntro never changes after mount for a given usage site, and
 // this must not re-render on every 60x/sec hero game-loop update happening
 // elsewhere on the Home page.
+const ACCESS_KEY = '9f496937-65fb-4332-8443-a2f5cb3493ed';
+
 export const ContactSection = React.memo(function ContactSection({ hideIntro = false } = {}) {
   const sectionRef = useRef(null);
   const infoRef = useRef(null);
@@ -21,6 +23,8 @@ export const ContactSection = React.memo(function ContactSection({ hideIntro = f
 
   const [form, setForm] = useState(INITIAL_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -54,12 +58,41 @@ export const ContactSection = React.memo(function ContactSection({ hideIntro = f
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // No backend is wired up yet - this simulates a send so the UI/UX can be
-    // reviewed end to end. Wire this up to a real endpoint (e.g. Formspree,
-    // EmailJS, or your own API route) before relying on it in production.
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          budget: form.budget,
+          message: form.message,
+          subject: `New Project Inquiry from ${form.name || 'Website Contact Form'}`
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        setForm(INITIAL_FORM);
+      } else {
+        setErrorMsg(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setErrorMsg('Failed to send message. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -151,14 +184,22 @@ export const ContactSection = React.memo(function ContactSection({ hideIntro = f
                 />
               </label>
 
-              <button type="submit" className="contact-submit-btn">
-                <span>Send Message</span>
-                <img
-                  src="/assets/services/service-arrow.svg"
-                  alt=""
-                  className="contact-submit-arrow"
-                  aria-hidden="true"
-                />
+              {errorMsg && (
+                <div className="contact-error-msg" role="alert">
+                  {errorMsg}
+                </div>
+              )}
+
+              <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                {!isSubmitting && (
+                  <img
+                    src="/assets/services/service-arrow.svg"
+                    alt=""
+                    className="contact-submit-arrow"
+                    aria-hidden="true"
+                  />
+                )}
               </button>
             </form>
           )}
