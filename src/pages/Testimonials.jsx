@@ -98,7 +98,13 @@ export default function Testimonials() {
     return () => clearInterval(timerRef.current);
   }, []);
 
-  const marqueeLogos = [...WORK_DATA, ...WORK_DATA];
+  // Repeat the base set enough times that the track is always wider than
+  // any viewport, then duplicate that whole block once more — translating
+  // exactly -50% of the doubled track lines the seam up perfectly, so the
+  // loop never shows a gap or a visible jump, no matter how few real logos
+  // there are.
+  const marqueeLogoBase = Array.from({ length: 5 }, () => WORK_DATA).flat();
+  const marqueeLogos = [...marqueeLogoBase, ...marqueeLogoBase];
 
   return (
     <>
