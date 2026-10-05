@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#FEBD59"/>
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Lightbulb Outline -->
+    <path d="M50 16 A24 24 0 0 0 26 40 C26 54 36 64 36 74 L36 78 C36 81 38 83 41 83 L59 83 C62 83 64 81 64 78 L64 74 C64 64 74 54 74 40 A24 24 0 0 0 50 16 Z" fill="none"/>
+    <!-- Base Lines -->
+    <line x1="39" y1="87" x2="61" y2="87" stroke-width="3.5"/>
+    <line x1="43" y1="91" x2="57" y2="91" stroke-width="3"/>
+    <path d="M47 95 C47 97.5 53 97.5 53 95" stroke-width="2.5"/>
+    <!-- Atom Orbits -->
+    <ellipse cx="50" cy="44" rx="15" ry="5.5" transform="rotate(30 50 44)" stroke-width="2.5"/>
+    <ellipse cx="50" cy="44" rx="15" ry="5.5" transform="rotate(-30 50 44)" stroke-width="2.5"/>
+    <ellipse cx="50" cy="44" rx="15" ry="5.5" transform="rotate(90 50 44)" stroke-width="2.5"/>
+    <!-- Atom Nucleus & Electrons -->
+    <circle cx="50" cy="44" r="3" fill="#ffffff" stroke="none"/>
+    <circle cx="37" cy="37" r="2.2" fill="#ffffff" stroke="none"/>
+    <circle cx="63" cy="51" r="2.2" fill="#ffffff" stroke="none"/>
+    <!-- Light Rays -->
+    <line x1="50" y1="4" x2="50" y2="10" stroke-width="3.5"/>
+    <line x1="24" y1="15" x2="28" y2="19" stroke-width="3.5"/>
+    <line x1="76" y1="15" x2="72" y2="19" stroke-width="3.5"/>
+    <line x1="14" y1="36" x2="19" y2="37" stroke-width="3.5"/>
+    <line x1="86" y1="36" x2="81" y2="37" stroke-width="3.5"/>
+  </g>
+</svg>

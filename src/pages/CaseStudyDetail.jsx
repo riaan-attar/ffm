@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { WORK_DATA } from '../data/work';
 import { Navbar } from '../components/Navbar';
-import { RevealImage } from '../components/motion/RevealImage';
+import { LiveSitePreview } from '../components/work/LiveSitePreview';
 import { MagneticWrap } from '../components/motion/MagneticWrap';
 import '../styles/case-study-detail.css';
 
@@ -282,6 +282,18 @@ export default function CaseStudyDetail() {
           </div>
 
           <p className="csd-hero-copy">{project.description}</p>
+
+          <MagneticWrap>
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="csd-hero-live-btn"
+            >
+              <span>View Live Site</span>
+              <span aria-hidden="true">&#8599;</span>
+            </a>
+          </MagneticWrap>
         </div>
 
         <div className="csd-hero-visual-container">
@@ -292,16 +304,17 @@ export default function CaseStudyDetail() {
               <span className="csd-chrome-dot" aria-hidden="true"></span>
             </div>
             <div className="csd-preview-visual">
-              <RevealImage
-                src={project.image}
-                alt={`${project.title} concept preview`}
-                direction="left"
+              <LiveSitePreview
+                url={project.liveUrl}
+                title={project.title}
                 className="csd-preview-reveal"
+                scale={0.42}
+                showChrome={false}
               />
             </div>
           </div>
           <p className="csd-preview-caption">
-            Concept visualization &mdash; illustrative mockup, not a live product screenshot.
+            Live preview &mdash; this is the real, shipped site, embedded directly.
           </p>
         </div>
       </header>
@@ -320,7 +333,7 @@ export default function CaseStudyDetail() {
           </div>
           <div className="csd-meta-divider" aria-hidden="true"></div>
           <div className="csd-meta-item">
-            <span className="csd-meta-label">Timeline</span>
+            <span className="csd-meta-label">{weeksTarget ? 'Timeline' : 'Status'}</span>
             {weeksTarget ? (
               <span className="csd-meta-stat">
                 <span ref={weeksValueRef} className="csd-meta-stat-number">0</span>
@@ -365,7 +378,7 @@ export default function CaseStudyDetail() {
             <span>DESIGN OUTCOMES</span>
           </div>
           <h2 className="csd-results-headline">
-            What This Concept Was <span className="csd-highlight-gold">Built to Achieve</span>
+            What This Project Was <span className="csd-highlight-gold">Built to Achieve</span>
           </h2>
           <div className="csd-results-ledger">
             {project.results.map((result, i) => (

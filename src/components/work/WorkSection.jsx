@@ -160,6 +160,7 @@ export const WorkSection = React.memo(function WorkSection() {
                 <WorkItem
                   project={project}
                   reverse={index % 2 === 1}
+                  loadPreview={index <= activeIndex}
                 />
               </div>
             ))}

@@ -199,6 +199,43 @@
   100% { transform: translateX(-50%); }
 }
 
+/* --- Logo marquee (real case-study clients) --- */
+.tst-logo-marquee-track {
+  gap: 56px;
+  animation-duration: 26s;
+}
+
+.tst-logo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  opacity: 0.6;
+  filter: grayscale(1);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.tst-logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.tst-logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: rgba(248, 241, 223, 0.08);
+}
+
+.tst-logo-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--color-cream, #F8F1DF);
+  white-space: nowrap;
+}
+
 /* ==================================================
    SPOTLIGHT
    ================================================== */

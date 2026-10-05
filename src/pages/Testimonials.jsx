@@ -9,6 +9,7 @@ import { AvatarBadge } from '../components/testimonials/AvatarBadge';
 import { StarRating } from '../components/testimonials/StarRating';
 import { VideoModal } from '../components/testimonials/VideoModal';
 import { TESTIMONIALS_DATA } from '../data/testimonials';
+import { WORK_DATA } from '../data/work';
 import '../styles/testimonials.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -97,7 +98,7 @@ export default function Testimonials() {
     return () => clearInterval(timerRef.current);
   }, []);
 
-  const marqueeItems = [...TESTIMONIALS_DATA, ...TESTIMONIALS_DATA];
+  const marqueeLogos = [...WORK_DATA, ...WORK_DATA];
 
   return (
     <>
@@ -138,10 +139,13 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="tst-marquee" aria-hidden="true">
-          <div className="tst-marquee-track">
-            {marqueeItems.map((t, i) => (
-              <AvatarBadge key={t.id + i} initials={t.avatarInitials} color={t.avatarColor} size="sm" />
+        <div className="tst-marquee tst-logo-marquee" aria-hidden="true">
+          <div className="tst-marquee-track tst-logo-marquee-track">
+            {marqueeLogos.map((project, i) => (
+              <div key={project.id + i} className="tst-logo-item">
+                <img src={project.logo} alt="" loading="lazy" className="tst-logo-img" />
+                <span className="tst-logo-name">{project.title}</span>
+              </div>
             ))}
           </div>
         </div>

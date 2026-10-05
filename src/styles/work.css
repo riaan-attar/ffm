@@ -170,7 +170,9 @@
   height: 100%;
   position: relative;
   display: flex;
-  align-items: center;
+  /* stretch (not center) so a percentage-height child - like the live
+     site preview iframe - has a real height to resolve against */
+  align-items: stretch;
   justify-content: center;
   background: rgba(11, 35, 56, 0.5);
   padding: 40px;
@@ -193,9 +195,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
-  padding: 48px 56px;
+  gap: 14px;
+  padding: 44px 56px;
   box-sizing: border-box;
+  /* Safety net: if a particularly long title/description still exceeds the
+     card's fixed height at some width, scroll inside the card instead of
+     overflowing it and overlapping the next stacked card behind it. */
+  overflow-y: auto;
 }
 
 .work-card-number {
@@ -240,6 +246,17 @@
   opacity: 0.85;
   margin: 2px 0 6px;
   max-width: 46ch;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.work-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .work-card-link {
@@ -273,6 +290,39 @@
 .work-card-link:hover .work-card-link-arrow {
   transform: translate(2px, -2px);
   filter: invert(12%) sepia(24%) saturate(1200%) hue-rotate(175deg) brightness(90%) contrast(95%);
+}
+
+.work-card-preview-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 10px 4px;
+  border: none;
+  background: none;
+  color: var(--color-muted-blue, #9EAFBD);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.work-card-preview-btn:hover {
+  color: var(--color-gold, #E5AE45);
+  gap: 13px;
+}
+
+.work-card-preview-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 8px;
 }
 
 /* ==================================================
@@ -430,12 +480,26 @@
     max-width: 100%;
   }
 
+  .work-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 2px;
+  }
+
   .work-card-link {
     width: 100%;
     justify-content: center;
     padding: 11px 20px;
     font-size: 11px;
-    margin-top: 2px;
+    margin-top: 0;
+  }
+
+  .work-card-preview-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 9px 10px;
+    font-size: 11px;
   }
 
   .work-progress-dots {

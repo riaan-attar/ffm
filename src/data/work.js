@@ -1,86 +1,91 @@
+/*
+ * Real, shipped projects — not concepts. liveUrl points at the actual live
+ * site, embedded directly as the "preview" (see LiveSitePreview.jsx)
+ * instead of a static mockup image.
+ */
 export const WORK_DATA = [
   {
-    id: "agritech",
+    id: "stratedgex",
     number: "01",
-    title: "AgriTech Platform",
-    tags: ["Web App", "AI", "IoT"],
-    description: "A data-driven platform that helps farmers monitor crop health, automate irrigation and forecast yields using live IoT sensor data.",
-    image: "/assets/sections/work-placeholder.svg",
-    link: "#",
-    client: "Regional agricultural cooperative",
-    role: "Product design, full-stack development, IoT integration",
-    timeline: "14 weeks",
-    challenge: "Member farms were making irrigation and harvest decisions on gut feel and paper logs, with no shared view of soil, weather or sensor data across plots. Small forecasting misses were compounding into real water and yield losses.",
-    solution: "We designed a concept platform that pulls live readings from field sensors into a single dashboard, layering in automated irrigation triggers and a simple yield-forecast model so cooperative staff and farmers could act on the same data in real time.",
+    title: "StratedgeX",
+    tags: ["Web Design", "Performance Marketing", "Lead Generation"],
+    description: "A performance marketing agency's site built to match its own positioning: engineered, data-driven, and precise.",
+    liveUrl: "https://www.stratedgex.co/",
+    logo: "/assets/clients/stratedgex.svg",
+    client: "StratedgeX — High-ROI Performance Marketing Agency",
+    role: "Web design & development",
+    timeline: "Live",
+    challenge: "Most performance-marketing agency sites look interchangeable — generic templates that undersell a genuinely technical, systems-driven approach. StratedgeX needed a site that read as engineered rather than decorated, with a clear path from \"skeptical visitor\" to \"booked strategy audit.\"",
+    solution: "We built the site around an engineering metaphor end to end: a structured breakdown of core capabilities (Google Ads, Meta Ads, SEO & Organic, Landing Page Development, Brand Engineering, Revenue Operations), a dedicated case-study and measured-outcomes section, and a \"Structural Strategy Audit\" as the primary lead-generation flow.",
     results: [
-      "Designed to give cooperative staff one unified view instead of scattered paper logs",
-      "Automated irrigation rules planned to cut manual monitoring time for field teams",
-      "Yield-forecast model framed as an early-warning tool, not a guarantee",
-      "Built with a mobile-first field view so decisions can be made on-site"
+      "A full capabilities architecture spanning six specialized service divisions",
+      "A dedicated case-study showcase built to let results speak first",
+      "A structured audit funnel replacing a generic \"contact us\" form",
+      "A methodology/FAQ section built to pre-sell trust before the first call"
     ],
-    techStack: ["React", "Node.js", "PostgreSQL", "MQTT", "Python"]
+    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion"]
   },
   {
-    id: "real-estate-crm",
+    id: "jaaligoa",
     number: "02",
-    title: "Real Estate CRM",
-    tags: ["Web App", "CRM", "Automation"],
-    description: "A custom CRM built for real estate teams to manage listings, automate follow-ups and close deals faster with a single connected pipeline.",
-    image: "/assets/sections/work-placeholder.svg",
-    link: "#",
-    client: "Multi-office real estate brokerage",
-    role: "Product design, full-stack development",
-    timeline: "10 weeks",
-    challenge: "Agents across several offices were tracking listings and leads in disconnected spreadsheets and inboxes, so follow-ups slipped and management had no reliable picture of the pipeline. Off-the-shelf CRMs felt bloated for how the team actually worked.",
-    solution: "We concepted a lightweight, purpose-built CRM centered on a single pipeline view, with automated follow-up reminders and listing status tracking designed to match the brokerage's existing workflow rather than forcing a new one.",
+    title: "Jaali Goa",
+    tags: ["Web Design", "Hospitality", "Boutique Hotels"],
+    description: "A boutique hospitality brand's site for three South Goa stays, built to sell slow, quiet travel instead of a generic booking funnel.",
+    liveUrl: "https://jaaligoa.com/",
+    logo: "/assets/clients/jaaligoa.png",
+    client: "Jaali Goa — Boutique Hotels in Patnem & South Goa",
+    role: "Web design & development",
+    timeline: "Live",
+    challenge: "Jaali Goa runs three distinct boutique stays — Casa Jaali, Jaali Blue, and Jaali River Sanctuary — each with its own character, competing for attention against big OTA listings that flatten every property into the same grid of thumbnails and star ratings. The site needed to sell a feeling first and a room second, while still keeping all three properties legible as one cohesive brand.",
+    solution: "We built a visual-first site organized around the three stays, each with its own identity within a shared brand language, leading with atmosphere and place rather than amenities lists, and pointed toward direct enquiries instead of routing every visitor through a third-party booking engine.",
     results: [
-      "Single connected pipeline designed to replace scattered spreadsheets",
-      "Automated follow-up reminders aimed at reducing dropped leads",
-      "Listing status tracking built for visibility across every office",
-      "Streamlined onboarding intended to get new agents productive quickly"
+      "Dedicated pages for each of the three properties within one cohesive brand",
+      "A visual-first layout that sells atmosphere before amenities",
+      "A direct-enquiry path designed to reduce dependence on OTA listings",
+      "A site built on Framer for fast iteration on seasonal content and offers"
     ],
-    techStack: ["React", "Node.js", "PostgreSQL", "Twilio"]
+    techStack: ["Framer", "CMS", "Responsive Design"]
   },
   {
-    id: "business-dashboard",
+    id: "46ounces",
     number: "03",
-    title: "Business Dashboard",
-    tags: ["Web App", "Analytics", "SaaS"],
-    description: "A real-time analytics dashboard giving founders a single view of revenue, growth and operations across every part of the business.",
-    image: "/assets/sections/work-placeholder.svg",
-    link: "#",
-    client: "Early-stage SaaS startup",
-    role: "Product design, front-end development, data integration",
-    timeline: "8 weeks",
-    challenge: "Leadership was pulling revenue, growth and operations numbers from several disconnected tools before every meeting, which made it hard to spot trends early or make quick calls. They needed one trustworthy source of truth, not another export to babysit.",
-    solution: "We designed a concept dashboard that unifies the key business metrics into a single real-time view, with modular widgets so each team could surface the numbers that mattered most to them without rebuilding reports by hand.",
+    title: "46 Ounces",
+    tags: ["Web Design", "F&B", "Hospitality"],
+    description: "A microbrewery and restaurant's site built to translate an in-person taproom experience — menu, brews, and atmosphere — onto the web.",
+    liveUrl: "https://46ounces.com/",
+    logo: "/assets/clients/46ounces.jpg",
+    client: "46 Ounces Brewgarden — Bar & Restaurant, Electronic City, Bangalore",
+    role: "Web design & development",
+    timeline: "Live",
+    challenge: "As the first microbrewery of its kind in Electronic City, 46 Ounces needed a site that did more than list an address — it had to make a new, unfamiliar concept (an in-house brewgarden) feel like an obvious night-out choice to people searching nearby, and get them from \"never heard of it\" to \"let's go\" in one visit.",
+    solution: "We built the site around the taproom experience itself: the menu and brews up front, clear location and visit details, and brand-forward visuals that carry the atmosphere of the space onto the page instead of a generic restaurant template.",
     results: [
-      "Designed to consolidate scattered reporting into one live view",
-      "Modular widget layout built to adapt as the business grows",
-      "Framed around early trend-spotting rather than after-the-fact reporting",
-      "Built for fast scanning in investor and leadership check-ins"
+      "A menu-and-brews-first layout built for quick decision-making",
+      "Clear, prominent location and visit details for local search traffic",
+      "Brand-forward visuals carrying the taproom's atmosphere onto the web",
+      "A first-of-its-kind local concept given a site that matches its positioning"
     ],
-    techStack: ["React", "Node.js", "PostgreSQL", "Chart.js"]
+    techStack: ["HTML5", "CSS3", "JavaScript"]
   },
   {
-    id: "fintech-wallet",
+    id: "fiftystars",
     number: "04",
-    title: "FinTech Wallet",
-    tags: ["Mobile App", "Payments", "Security"],
-    description: "A secure digital wallet enabling instant transfers, spend tracking and card management with bank-grade encryption throughout.",
-    image: "/assets/sections/work-placeholder.svg",
-    link: "#",
-    client: "Digital-first financial services provider",
-    role: "Product design, mobile development, security architecture",
-    timeline: "16 weeks",
-    challenge: "Users wanted the convenience of instant transfers and card management in one app, but the client couldn't compromise on security or regulatory expectations. Balancing a frictionless experience with bank-grade protections at every step was the core tension.",
-    solution: "We concepted a wallet app that pairs a clean, minimal transfer and spend-tracking experience with layered security — biometric authentication, encryption in transit and at rest, and card controls — designed to feel effortless without cutting corners on safety.",
+    title: "50 Stars",
+    tags: ["Web Design", "B2B Platform", "Interactive 3D"],
+    description: "A structural steel sourcing and trading platform, built to make an opaque, compliance-heavy industry feel transparent.",
+    liveUrl: "https://www.50-stars.com/",
+    logo: "/assets/clients/fiftystars.svg",
+    client: "50 Stars — Structural Steel Sourcing & Trading",
+    role: "Web design & development",
+    timeline: "Live",
+    challenge: "Industrial steel sourcing runs on trust signals most websites never show: mill test certificates, ASTM/AISC compliance, and traceability from mill to job site. 50 Stars needed a site that could earn that trust from general contractors and fabricators before a single phone call, while still explaining a genuinely technical product.",
+    solution: "We built an interactive 3D structural model (roof trusses, metal decking, columns, and crane lifts) so visitors could explore the actual product rather than read about it, paired with a transparent flat-fee pricing section, compliance and certification details, and a capabilities breakdown by product category and tonnage.",
     results: [
-      "Designed to make instant transfers feel simple without exposing security shortcuts",
-      "Biometric authentication and encryption planned in from the first wireframe",
-      "Spend-tracking and card controls built for everyday at-a-glance use",
-      "Architected with scale in mind, targeting tens of thousands of concurrent users"
+      "An interactive 3D structural viewer as the site's centerpiece, not an afterthought",
+      "A transparent, flat-fee pricing section replacing \"request a quote\" opacity",
+      "Compliance and mill-test traceability made explicit, not buried in a PDF",
+      "A capabilities section organized the way contractors actually buy: by product and tonnage"
     ],
-    techStack: ["React Native", "Node.js", "PostgreSQL", "AWS KMS"]
+    techStack: ["React", "Three.js", "Vite", "Node.js"]
   }
 ];
