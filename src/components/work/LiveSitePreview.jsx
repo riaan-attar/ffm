@@ -16,11 +16,16 @@ function getDomain(url) {
  * mounts, before the visitor has even scrolled to it.
  *
  * Self-managed by default: an IntersectionObserver mounts the real
- * `<iframe>` the moment this element is actually visible, and only once
- * (it then stays loaded). Pass `loaded` explicitly to control it from the
- * outside instead (used on the home page's pinned card stack, where cards
- * are moved on/off screen via transform rather than normal scroll, so each
- * one loads exactly when it becomes the active card).
+ * `<iframe>` once this element is actually visible, and unmounts it again
+ * once it's scrolled well out of view (400px buffer so it doesn't flicker
+ * right at the viewport edge). A page with several of these in a row (e.g.
+ * the /work archive) would otherwise end up with every one of them mounted
+ * and running simultaneously after a single scroll-through — each is a
+ * full second website with its own JS, and at least one runs a live 3D
+ * scene, so that adds up to real main-thread/GPU cost fast. Pass `loaded`
+ * explicitly to control it from the outside instead (used on the home
+ * page's pinned card stack, where cards are moved on/off screen via
+ * transform rather than normal scroll).
  */
 export function LiveSitePreview({ url, title, className = '', scale = 0.4, showChrome = true, loaded: loadedProp }) {
   const [internalLoaded, setInternalLoaded] = useState(false);
@@ -30,7 +35,6 @@ export function LiveSitePreview({ url, title, className = '', scale = 0.4, showC
 
   useEffect(() => {
     if (loadedProp !== undefined) return; // externally controlled - skip self-observation
-    if (internalLoaded) return;
     const el = containerRef.current;
     if (!el || typeof IntersectionObserver === 'undefined') {
       setInternalLoaded(true);
@@ -38,17 +42,12 @@ export function LiveSitePreview({ url, title, className = '', scale = 0.4, showC
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInternalLoaded(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
+      ([entry]) => setInternalLoaded(entry.isIntersecting),
+      { threshold: 0.15, rootMargin: '400px 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [loadedProp, internalLoaded]);
+  }, [loadedProp]);
 
   if (!loaded) {
     return (

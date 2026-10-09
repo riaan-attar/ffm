@@ -172,7 +172,7 @@ export default function ServiceDetail() {
             trigger: ghostNumberRef.current,
             start: 'top top',
             end: 'bottom top',
-            scrub: true
+            scrub: 0.6
           }
         });
       }
