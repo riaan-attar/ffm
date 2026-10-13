@@ -95,12 +95,12 @@ export default function ServicesOverview() {
           <SplitText
             as="h1"
             className="sov-hero-title"
-            text="Six Ways We Help You Grow"
+            text="How We Help You Grow"
           />
 
           <p className="sov-hero-copy">
-            From the first line of code to the automation that runs while you sleep — one connected
-            practice, six disciplines deep.
+            From the first line of code to the automation that runs while you sleep — modern
+            digital capabilities tailored to your business.
           </p>
         </div>
       </header>
@@ -117,7 +117,7 @@ export default function ServicesOverview() {
 
             <div className="sov-row-inner">
               <div className="sov-row-content">
-                <span className="sov-row-number">{service.number} / 06</span>
+                <span className="sov-row-number">{service.number} / {String(SERVICES_DATA.length).padStart(2, '0')}</span>
                 <h2 className="sov-row-title">{service.title}</h2>
                 <p className="sov-row-tagline">{service.tagline}</p>
 

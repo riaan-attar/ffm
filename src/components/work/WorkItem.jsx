@@ -1,27 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LiveSitePreview } from './LiveSitePreview';
 
-export function WorkItem({ project, reverse, loadPreview }) {
+export function WorkItem({ project, reverse }) {
   return (
     <article className={`work-card ${reverse ? 'work-card-reverse' : ''}`}>
       <div className="work-card-visual-col">
-        {project.liveUrl ? (
-          <LiveSitePreview
-            url={project.liveUrl}
-            title={project.title}
-            className="work-card-preview-img"
-            scale={0.42}
-            loaded={loadPreview}
-          />
-        ) : (
-          <img
-            src={project.image}
-            alt={`${project.title} preview`}
-            className="work-card-preview-img"
-            loading="lazy"
-          />
-        )}
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          className="work-card-preview-img"
+          loading="lazy"
+        />
       </div>
 
       <div className="work-card-content-col">
