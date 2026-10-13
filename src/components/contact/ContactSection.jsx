@@ -115,13 +115,13 @@ export const ContactSection = React.memo(function ContactSection({ hideIntro = f
             </p>
 
             <div className="contact-details">
-              <a href="mailto:hello@footfallmetrics.in" className="contact-detail-item">
+              <a href="mailto:niranjan@footfallmetrics.in" className="contact-detail-item">
                 <span className="contact-detail-label">Email</span>
-                <span className="contact-detail-value">hello@footfallmetrics.in</span>
+                <span className="contact-detail-value">niranjan@footfallmetrics.in</span>
               </a>
-              <a href="tel:+910000000000" className="contact-detail-item">
+              <a href="tel:+919423644203" className="contact-detail-item">
                 <span className="contact-detail-label">Phone</span>
-                <span className="contact-detail-value">+91 00000 00000</span>
+                <span className="contact-detail-value">+91 9423644203</span>
               </a>
             </div>
           </div>
